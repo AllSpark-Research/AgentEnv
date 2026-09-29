@@ -4,8 +4,9 @@
 
 ### 构建交互环境，合成训练数据，扩展环境与任务多样性。
 
-**AllSpark Research · 智能体环境与数据合成**
+**✦ AllSpark Research · 智能体环境与数据合成**
 
+[![AllSpark](https://img.shields.io/badge/%E2%9C%A6_AllSpark-Research-7C3AED?style=flat-square)](https://github.com/AllSpark-Research)
 [![GitHub](https://img.shields.io/badge/GitHub-AgentEnv-181717?style=flat-square&logo=github)](https://github.com/AllSpark-Research/AgentEnv)
 [![CompoWorld](https://img.shields.io/badge/arXiv-CompoWorld-B31B1B?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2609.33665)
 [![Skill2Env](https://img.shields.io/badge/arXiv-Skill2Env-B31B1B?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2609.33772)
@@ -47,7 +48,7 @@ CompoWorld 将可复用服务组合为需要跨服务传递信息、协同执行
 
 论文报告：基于 Qwen3.6-35B-A3B 训练后，在 **8 个基准上平均提升 9.17 分**。
 
-[阅读论文 ↗](https://arxiv.org/abs/2609.33665)
+[阅读论文 ↗](https://arxiv.org/abs/2609.33665) · [模型](https://huggingface.co/AllSpark-Research/CompoWorld) · [项目与示例](CompoWorld/README.md) · [示例数据](CompoWorld/compoworld_example_data_20.jsonl)
 
 ### Skill2Env
 
@@ -102,6 +103,6 @@ Skill2Env 通过能力导向的难度模式与任务蓝图，将可复用技能�
 
 <div align="center">
 
-**AllSpark Research** · 让智能体在交互中学习。
+**[✦ AllSpark Research](https://github.com/AllSpark-Research)** · 让智能体在交互中学习。
 
 </div>

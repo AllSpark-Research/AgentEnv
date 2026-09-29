@@ -4,8 +4,9 @@
 
 ### Environments for agents. Data from interaction. Diversity at scale.
 
-**AllSpark Research · Agent Environment & Data Synthesis**
+**✦ AllSpark Research · Agent Environment & Data Synthesis**
 
+[![AllSpark](https://img.shields.io/badge/%E2%9C%A6_AllSpark-Research-7C3AED?style=flat-square)](https://github.com/AllSpark-Research)
 [![GitHub](https://img.shields.io/badge/GitHub-AgentEnv-181717?style=flat-square&logo=github)](https://github.com/AllSpark-Research/AgentEnv)
 [![CompoWorld](https://img.shields.io/badge/arXiv-CompoWorld-B31B1B?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2609.33665)
 [![Skill2Env](https://img.shields.io/badge/arXiv-Skill2Env-B31B1B?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2609.33772)
@@ -46,7 +47,7 @@ CompoWorld composes reusable services into tasks that require information and ac
 
 Training Qwen3.6-35B-A3B yields a **9.17-point average improvement across eight benchmarks**, as reported in the paper.
 
-[Read the paper ↗](https://arxiv.org/abs/2609.33665)
+[Read the paper ↗](https://arxiv.org/abs/2609.33665) · [Model](https://huggingface.co/AllSpark-Research/CompoWorld) · [Project & examples](CompoWorld/README.md) · [Example data](CompoWorld/compoworld_example_data_20.jsonl)
 
 ### Skill2Env
 
@@ -100,6 +101,6 @@ If these works inform your research, please cite the corresponding papers.
 
 <div align="center">
 
-**AllSpark Research** · Building environments for agents to learn by doing.
+**[✦ AllSpark Research](https://github.com/AllSpark-Research)** · Building environments for agents to learn by doing.
 
 </div>
