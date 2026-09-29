@@ -1,12 +1,14 @@
 <div align="center">
 
-# AgentEnv
+<h1 align="center">
+  <a href="https://github.com/AllSpark-Research"><img src="https://avatars.githubusercontent.com/u/277376690?s=200&amp;v=4" alt="AllSpark logo" width="64" height="64" align="absmiddle"></a>
+  &nbsp;AgentEnv
+</h1>
 
 ### 构建交互环境，合成训练数据，扩展环境与任务多样性。
 
-**✦ AllSpark Research · 智能体环境与数据合成**
+**AllSpark Research · 智能体环境与数据合成**
 
-[![AllSpark](https://img.shields.io/badge/%E2%9C%A6_AllSpark-Research-7C3AED?style=flat-square)](https://github.com/AllSpark-Research)
 [![GitHub](https://img.shields.io/badge/GitHub-AgentEnv-181717?style=flat-square&logo=github)](https://github.com/AllSpark-Research/AgentEnv)
 [![CompoWorld](https://img.shields.io/badge/arXiv-CompoWorld-B31B1B?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2609.33665)
 [![Skill2Env](https://img.shields.io/badge/arXiv-Skill2Env-B31B1B?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2609.33772)
@@ -103,6 +105,6 @@ Skill2Env 通过能力导向的难度模式与任务蓝图，将可复用技能�
 
 <div align="center">
 
-**[✦ AllSpark Research](https://github.com/AllSpark-Research)** · 让智能体在交互中学习。
+**[AllSpark Research](https://github.com/AllSpark-Research)** · 让智能体在交互中学习。
 
 </div>
