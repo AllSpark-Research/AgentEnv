@@ -63,7 +63,7 @@ Skill2Env 通过能力导向的难度模式与任务蓝图，将可复用技能�
 
 论文报告：使用生成的轨迹进行监督微调，在多项智能体基准上取得提升。
 
-[阅读论文 ↗](https://arxiv.org/abs/2609.33772)
+[阅读论文 ↗](https://arxiv.org/abs/2609.33772) · [模型](https://huggingface.co/AllSpark-Research/Skill2Env) · [示例任务](./Skill2Env/)
 
 ## 资源入口
 
@@ -90,12 +90,11 @@ Skill2Env 通过能力导向的难度模式与任务蓝图，将可复用技能�
   url     = {https://arxiv.org/abs/2609.33665}
 }
 
-@article{allspark2026skill2env,
-  title   = {Skill2Env: Capability-Oriented Environment Synthesis from Skills for General Agents},
-  author  = {{AllSpark Team}},
-  journal = {arXiv preprint arXiv:2609.33772},
-  year    = {2026},
-  url     = {https://arxiv.org/abs/2609.33772}
+@article{xu2026skill2env,
+  title={Skill2Env: Capability-Oriented Environment Synthesis from Skills for General Agents},
+  author={Xu, Weiyi and Yang, Xiaowen and Da, Wen and Xu, Hang and Li, Canwei and You, Hongjie and Dong, Pusen and Zeng, Yucheng and Luo, Zhaokai and Chuan, Mu},
+  journal={arXiv preprint arXiv:2609.33772},
+  year={2026}
 }
 ```
 
