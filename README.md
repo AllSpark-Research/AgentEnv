@@ -61,7 +61,7 @@ Skill2Env turns reusable skills into executable tasks through capability-driven 
 
 Supervised fine-tuning on the generated trajectories produces improvements across a broad range of agent benchmarks, as reported in the paper.
 
-[Read the paper ↗](https://arxiv.org/abs/2609.33772) 
+[Read the paper ↗](https://arxiv.org/abs/2609.33772) · [Model](https://huggingface.co/AllSpark-Research/Skill2Env) · [Example tasks](./Skill2Env/)
 
 ## Resources
 
@@ -88,12 +88,11 @@ If these works inform your research, please cite the corresponding papers.
   url     = {https://arxiv.org/abs/2609.33665}
 }
 
-@article{allspark2026skill2env,
-  title   = {Skill2Env: Capability-Oriented Environment Synthesis from Skills for General Agents},
-  author  = {{AllSpark Team}},
-  journal = {arXiv preprint arXiv:2609.33772},
-  year    = {2026},
-  url     = {https://arxiv.org/abs/2609.33772}
+@article{xu2026skill2env,
+  title={Skill2Env: Capability-Oriented Environment Synthesis from Skills for General Agents},
+  author={Xu, Weiyi and Yang, Xiaowen and Da, Wen and Xu, Hang and Li, Canwei and You, Hongjie and Dong, Pusen and Zeng, Yucheng and Luo, Zhaokai and Chuan, Mu},
+  journal={arXiv preprint arXiv:2609.33772},
+  year={2026}
 }
 ```
 
