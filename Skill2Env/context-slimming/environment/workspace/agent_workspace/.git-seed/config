@@ -1,0 +1,8 @@
+[core]
+	repositoryformatversion = 0
+	fileMode = false
+	bare = false
+	logallrefupdates = true
+[user]
+	name = ye-hang-star
+	email = nc7@linyuan.tech

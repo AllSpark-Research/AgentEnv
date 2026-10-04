@@ -1,0 +1,26 @@
+name: ml-training-gcp
+
+on:
+  schedule:
+    - cron: '0 2 * * 1'
+  workflow_dispatch:
+
+jobs:
+  train:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v0
+        with:
+          credentials_json: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v0
+      - name: Launch training job
+        run: |
+          gcloud ai custom-jobs create \
+            --project=meridian-ml-prod \
+            --region=us-central1 \
+            --config=training/job-config.yaml
+      - name: Export metrics
+        run: gsutil cp ./runs/latest/metrics.json gs://meridian-ml-artifacts/metrics/

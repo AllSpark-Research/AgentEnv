@@ -1,0 +1,6 @@
+site,warehouse_city,expected_daily_uploads,min_uptime_pct
+PIT,Pittsburgh PA,7,95.0
+CLE,Cleveland OH,7,95.0
+STL,St. Louis MO,7,95.0
+PHX,Phoenix AZ,7,95.0
+REN,Reno NV,7,95.0

@@ -1,0 +1,30 @@
+{
+  "rubric": [
+    {
+      "id": "structure",
+      "description": "Template contract compliance across all three deliverables: A1='表中文名'/A2='表英文名' labels and the row-4 header row preserved, B1/B2 carry the correct table name and entity name (not the stale cash-flow values), and no stale leftover rows, excluded ('不用新增') fields, or extra rows leak beyond the final field row in columns A–E.",
+      "weight": 0.25,
+      "method": "deterministic"
+    },
+    {
+      "id": "balance_sheet_fields",
+      "description": "资产负债表_导入模板.xlsx contains exactly the 30 retained balance-sheet/collection fields in collection-sheet order, each with the correct English name from the mapping library, the correct type per the detection rules, and the 是否必填 flag inherited from 字段采集表 ('其中：应收利息', '一年内到期的非流动资产/负债' and the duplicate 应收账款 excluded).",
+      "weight": 0.25,
+      "method": "deterministic"
+    },
+    {
+      "id": "profit_fields",
+      "description": "利润表_导入模板.xlsx contains exactly the 14 retained fields in order with correct English names, types, and required flags (资产处置收益, 加：营业外收入, 营业外支出 excluded).",
+      "weight": 0.20,
+      "method": "deterministic"
+    },
+    {
+      "id": "bank_account_fields",
+      "description": "银行账号_导入模板.xlsx contains exactly the 11 retained fields in order with correct English names (unmapped 账户限额 rendered as field11), correct types (账户类型=单选, 账户状态=状态标签, 开户日期=日期时间), and required flags — including excluding the required-but-'不用新增' 开户行行号 and the duplicate 账号名称 row.",
+      "weight": 0.30,
+      "method": "deterministic"
+    }
+  ],
+  "pass_threshold": 0.7,
+  "rubric_summary": "A passing solution regenerates the three named import templates from the collection workbook exactly per the platform-team notice: correct sheets chosen (expense form postponed), '不用新增' and duplicate rows filtered, required flags inherited, mapping-library English names with field{N} fallback, rule-based field types, B1/B2 written without touching the row-4 header, and all 16 stale cash-flow rows cleared from every template."
+}

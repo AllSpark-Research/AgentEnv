@@ -1,0 +1,63 @@
+﻿ Order ID ,ORDER_DATE,CUSTOMER_NAME,Customer E-mail,SKU#,QTY,Unit Price,Status,Region,UPDATED_AT
+ORD-9003,2024-04-10,Test Person,test.person@example.com,SKU-103,-2,"€24,50",Paid,EU,2024-06-12T08:30:00Z
+ORD-1022,27/03/2024,Marcus Webb,marcus.webb@example.com,SKU-106,3,"€89,00",refunded,EU,2024-06-19T01:46:00Z
+ORD-1020,25-Mar-2024,Elif Yılmaz,ELIF.YLMAZ@EXAMPLE.COM,SKU-104,1,£53.10,Paid,UK,2024-06-17T09:20:00Z
+ORD-1017,22-Mar-2024,null,grace.oneill@example.com,SKU-101,3,449.85,PENDING,US,06/20/2024 10:41 AM
+ORD-1019,24/03/2024,Nina Berger,nina.berger@example.com,SKU-103,5,"€9,99",Cancelled,EU,16/06/2024 02:07
+ORD-1012,2024-03-17,François Moreau,francois.moreau@example.com,SKU-104,3,£56.05,Paid,UK,2024-06-15T19:36:00Z
+ORD-1032,06-Apr-2024,François Moreau,francois.moreau@example.com,SKU-108,3,£116.99,Paid,UK,2024-06-17T05:56:00Z
+ORD-1034,08/04/2024,Jan Kowalski,jan.kowalski@example.com,SKU-102,5,"€24,50",refunded,EU,2024-06-19T19:22:00Z
+ORD-9007,2024-04-10,Test Person,test.person@example.com,SKU-103,2,-,Paid,US,2024-06-12T08:30:00Z
+ORD-9008,2024-02-31,Test Person,test.person@example.com,SKU-103,2,"€19,99",Paid,EU,2024-06-12T08:30:00Z
+ORD-1021,2024-03-26,Renée Lefèvre,  renee.lefevre@example.com ,SKU-105,2,71.20,PENDING,US,06/18/2024 4:33 PM
+ORD-1010,15/03/2024,Diego Marín,DIEGO.MARIN@EXAMPLE.COM,SKU-102,1,"€24,50",refunded,EU,2024-06-19T05:10:00Z
+ORD-1024,2024-03-29,Tom Becker,tom.becker@example.com,SKU-108,5,£123.49,Paid,UK,2024-06-15T15:12:00Z
+ORD-1002,2024-03-07,Marcus Webb,marcus.webb@example.com,SKU-102,1,"€21,99",Pending,EU,22/05/2024 09:10
+ORD-1040,14/04/2024,Elif Yılmaz,ELIF.YLMAZ@EXAMPLE.COM,SKU-108,1,£129.99,Paid,UK,2024-06-19T17:40:00Z
+ORD-1037,04/11/2024,Grace O'Neill,grace.oneill@example.com,SKU-105,3,"1,124.25",PENDING,US,06/16/2024 6:01 PM
+ORD-1046,20/04/2024,Jonah Reyes,jonah.reyes@example.com,SKU-106,2,"€89,00",refunded,EU,2024-06-19T15:58:00Z
+ORD-1004,09/03/2024,Tom Becker,tom.becker@example.com,SKU-104,5,£59.00,Paid,UK,2024-06-19T07:52:00Z
+ORD-1030,2024-04-04,Diego Marín,DIEGO.MARIN@EXAMPLE.COM,SKU-106,1,"€84,55",refunded,EU,2024-06-15T13:30:00Z
+ORD-1010,2024-03-15,Diego Marín,diego.marin@example.com,SKU-102,1,"€31,66",PAID,EU,20/05/2024 09:32
+ORD-1005,10-Mar-2024,-,LUCIA.FERNANDEZ@EXAMPLE.COM,SKU-105,1,67.46,PENDING,US,06/20/2024 2:05 PM
+ORD-9001,2024-04-10,Test Person,test.person@example.com,SKU-103,two,$9.99,Paid,US,2024-06-12T08:30:00Z
+ORD-1011,16-Mar-2024,N/A,emma.clark@example.com,SKU-103,2,"€8,99",Cancelled,EU,20/06/2024 12:23
+ORD-1043,17/04/2024,Aisha Khan,aisha.khan@example.com,SKU-103,4,"€9,99",Cancelled,EU,16/06/2024 16:19
+ORD-1023,28-Mar-2024,NONE,aisha.khan@example.com,SKU-107,4,"€30,83",Cancelled,EU,20/06/2024 08:59
+ORD-1005,2024-03-10,-,lucia.fernandez@example.com,SKU-105,2,$31.66,Paid,US,2024-05-23T09:21:00Z
+ORD-1031,05/04/2024,Emma Clark,emma.clark@example.com,SKU-107,2,"€34,25",Cancelled,EU,16/06/2024 20:43
+ORD-1025,03/30/2024,Lucía Fernández,LUCIA.FERNANDEZ@EXAMPLE.COM,SKU-101,1,29.99,PENDING,US,06/16/2024 10:25 PM
+ORD-1001,03/06/2024,Renée Lefèvre,renee.lefevre@example.com,SKU-101,2,29.99,PENDING,US,06/16/2024 8:13 AM
+ORD-1047,21-Apr-2024,null,priya.nair@example.com,SKU-107,3,"€1.096,00",Cancelled,EU,20/06/2024 22:11
+ORD-1026,31-Mar-2024,Jonah Reyes,jonah.reyes@example.com,SKU-102,2,"€22,05",refunded,EU,2024-06-17T07:38:00Z
+ORD-9004,2024-04-10,Test Person,not-an-email,SKU-103,2,$9.99,Paid,EU,2024-06-12T08:30:00Z
+ORD-1029,03-Apr-2024,,hana.sato@example.com,SKU-105,5,67.46,PENDING,US,06/20/2024 6:17 AM
+ORD-1042,2024-04-16,Marcus Webb,  marcus.webb@example.com ,SKU-102,3,"€23,28",refunded,EU,2024-06-15T09:06:00Z
+ORD-1027,2024-04-01,Priya Nair,priya.nair@example.com,SKU-103,3,"€319,68",Cancelled,EU,18/06/2024 14:51
+ORD-1050,24-Apr-2024,Diego Marín,DIEGO.MARIN@EXAMPLE.COM,SKU-102,1,"€22,05",refunded,EU,2024-06-17T21:50:00Z
+ORD-1013,03/18/2024,Sofia Rossi,sofia.rossi@example.com,SKU-105,4,74.95,PENDING,US,06/16/2024 4:49 AM
+ORD-1036,2024-04-10,Omar Haddad,omar.haddad@example.com,SKU-104,2,£56.05,Paid,UK,2024-06-15T11:48:00Z
+ORD-1045,2024-04-19,Lucía Fernández,LUCIA.FERNANDEZ@EXAMPLE.COM,SKU-105,1,71.20,PENDING,US,06/18/2024 8:45 AM
+ORD-1039,2024-04-13,Nina Berger,nina.berger@example.com,SKU-107,5,"€32,54",Cancelled,EU,18/06/2024 10:27
+ORD-1033,2024-04-07,Sofia Rossi,sofia.rossi@example.com,SKU-101,4,28.49,PENDING,US,06/18/2024 12:09 PM
+ORD-9002,2024-04-10,Test Person,test.person@example.com,SKU-103,0,$9.99,Paid,US,2024-06-12T08:30:00Z
+ORD-1014,19-Mar-2024,Jan Kowalski,  jan.kowalski@example.com ,SKU-106,5,"€80,10",refunded,EU,2024-06-17T11:02:00Z
+ORD-1049,04/23/2024,Hana Sato,  hana.sato@example.com ,SKU-101,5,29.99,PENDING,US,06/16/2024 2:37 PM
+ORD-9006,2024-04-10,Test Person,test.person@example.com,SKU-999,2,$9.99,Paid,US,2024-06-12T08:30:00Z
+ORD-1003,2024-03-08,Aisha Khan,aisha.khan@example.com,SKU-103,4,"€9,49",Cancelled,EU,18/06/2024 22:39
+ORD-1028,02/04/2024,Ole Bjørnson,  ole.bjrnson@example.com ,SKU-104,4,£59.00,Paid,UK,2024-06-19T21:04:00Z
+ORD-1038,12-Apr-2024,Viktor Petrov,viktor.petrov@example.com,SKU-106,4,"€80,10",refunded,EU,2024-06-17T03:14:00Z
+ORD-1006,2024-03-11,Jonah Reyes,jonah.reyes@example.com,SKU-106,2,"€84,55",refunded,EU,2024-06-15T21:18:00Z
+ORD-1035,09-Apr-2024,-,  MEI.LIN@EXAMPLE.COM ,SKU-103,1,"€8,99",Cancelled,EU,20/06/2024 04:35
+ORD-1015,2024-03-20,Mei Lin,mei.lin@example.com,SKU-107,1,"€89,99",Cancelled,EU,21/05/2024 09:43
+ORD-1044,18-Apr-2024,Tom Becker,tom.becker@example.com,SKU-104,5,£53.10,Paid,UK,2024-06-17T01:32:00Z
+ORD-1007,12/03/2024,Priya Nair,  priya.nair@example.com ,SKU-107,3,"€1.096,00",Cancelled,EU,16/06/2024 06:31
+ORD-9005,2024-04-10,Test Person,N/A,SKU-103,2,$9.99,Paid,UK,2024-06-12T08:30:00Z
+ORD-1009,2024-03-14,Hana Sato,hana.sato@example.com,SKU-101,5,28.49,PENDING,US,06/18/2024 8:57 PM
+ORD-1015,2024-03-20,Mei Lin,MEI.LIN@EXAMPLE.COM,SKU-107,1,"€32,54",Cancelled,EU,18/06/2024 18:15
+ORD-1016,21/03/2024,Omar Haddad,omar.haddad@example.com,SKU-108,2,£129.99,Paid,UK,2024-06-19T03:28:00Z
+ORD-1018,2024-03-23,Viktor Petrov,viktor.petrov@example.com,SKU-102,4,"€23,28",refunded,EU,2024-06-15T17:54:00Z
+ORD-1048,2024-04-22,Ole Bjørnson,ole.bjrnson@example.com,SKU-108,4,£123.49,Paid,UK,2024-06-15T07:24:00Z
+ORD-1002,07-Mar-2024,Marcus Webb,marcus.webb@example.com,SKU-102,3,"€22,05",refunded,EU,2024-06-17T15:26:00Z
+ORD-1008,13-Mar-2024,Ole Bjørnson,ole.bjrnson@example.com,SKU-108,4,£116.99,Paid,UK,2024-06-17T13:44:00Z
+ORD-1041,15-Apr-2024,N/A,renee.lefevre@example.com,SKU-101,2,26.99,PENDING,US,06/20/2024 2:53 AM

@@ -1,0 +1,27 @@
+name: deploy-aws-staging
+
+on:
+  pull_request:
+    branches: [main]
+
+# Staging was given OIDC once already, but preview jobs still can't get a token.
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  deploy_preview:
+    runs-on: ubuntu-latest
+    environment: staging
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: us-east-1
+          role-to-assume: arn:aws:iam::111122223333:role/github-actions-staging-deploy
+          role-session-name: staging-preview
+      - name: Publish preview
+        run: aws s3 sync ./dist s3://meridian-staging-web --delete

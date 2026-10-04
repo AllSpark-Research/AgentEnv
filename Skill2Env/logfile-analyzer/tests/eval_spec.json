@@ -1,0 +1,40 @@
+{
+  "rubric": [
+    {
+      "id": "digest_patterns",
+      "description": "incident_digest.json contains the forced error patterns for 2024-11-14 with ground-truth counts (too many clients=42, pool acquire timeout=73, payments upstream 504=60, FATAL restarts=11, ERROR total≈175) and excludes the chronic DATA-882 slow-query noise.",
+      "weight": 0.30,
+      "method": "deterministic"
+    },
+    {
+      "id": "digest_schema",
+      "description": "incident_digest.json is a valid analyzer-style JSON digest (total_lines, filtered_count, severity_counts, time_range, patterns) covering both app services on 2024-11-14 with a non-empty filtered result — i.e., time anchoring against the historical date was handled correctly (no empty digest from a relative --since).",
+      "weight": 0.10,
+      "method": "deterministic"
+    },
+    {
+      "id": "report_facts",
+      "description": "incident_report.md cites the forced facts: trigger deploy v2.14.0 (13:58) and rollback (15:22), incident window ~14:03–15:34, 97 user-facing 5xx responses, 54 customer tickets, and the connection-pool / 'too many clients' mechanism; covers the template sections.",
+      "weight": 0.25,
+      "method": "deterministic"
+    },
+    {
+      "id": "root_cause_reasoning",
+      "description": "The postmortem establishes the correct causal chain from evidence (deploy correlation, pool exhaustion mechanism, recovery on rollback), treats payments 504s as cascade, and explicitly refutes the disk-full theory using metrics evidence rather than just ignoring it.",
+      "weight": 0.20,
+      "method": "llm_judge",
+      "judge_instruction": "Score 0..1. The incident truth: checkout-api v2.14.0 (deployed 2024-11-14 13:58 UTC) migrated the session store to pooled Postgres sessions; the pool exhausted Postgres connections ('FATAL: sorry, too many clients' and pool acquire timeouts from ~14:03), causing checkout 5xx until the 15:22 rollback to v2.13.2 drained by ~15:34. Score the report's ROOT CAUSE ANALYSIS: (a) ~0.4 — correctly identifies the v2.14.0 deploy / session-store pooling change as the trigger and the connection pool / max_connections exhaustion as the mechanism, tied to deploy/onset/rollback timing; (b) ~0.2 — classifies payments.log 504s as downstream cascade, not an independent cause; (c) ~0.2 — explicitly addresses the on-call disk-full hypothesis and refutes it with metrics/disk-usage.csv evidence (steady ~82% all day, no spike); (d) ~0.2 — reasoning is grounded in specific evidence (log messages, counts, timestamps, file references) with no invented facts. Deduct if the report blames disk, Stripe/payments, or DNS as the root cause, or if the causal story is asserted without evidence.",
+      "target_globs": ["incident_report.md"]
+    },
+    {
+      "id": "report_quality",
+      "description": "Postmortem quality: follows runbooks/incident-report-template.md sections, has a clear UTC timeline keyed to concrete events, and lists concrete corrective and preventive action items suitable for an SRE/engineering audience.",
+      "weight": 0.15,
+      "method": "llm_judge",
+      "judge_instruction": "Score 0..1 for overall postmortem craftsmanship (do NOT re-grade root-cause correctness, judged separately): (a) ~0.3 — follows the template (Summary, Impact, Timeline, Root Cause Analysis, Corrective and Preventive Action Items) with all requested content actually filled in; (b) ~0.2 — timeline is ordered, UTC-anchored, and keyed to concrete events (deploy 13:58, first errors ~14:03, detection via pages/tickets, rollback 15:22, recovery ~15:34) rather than vague prose; (c) ~0.3 — action items are concrete, actionable, and mapped to the failure (e.g., fix connection leak/ttl bug in v2.14.0, add pool-utilization alerting, add connection-leak regression test to the rollout pipeline, tune data retention/alerts) rather than generic 'monitor better'; (d) ~0.2 — clear, professional writing for an engineering audience, internally consistent numbers. Extra correct/useful content is fine; hallucinated facts or missing required sections reduce the score.",
+      "target_globs": ["incident_report.md"]
+    }
+  ],
+  "pass_threshold": 0.7,
+  "rubric_summary": "A passing solution delivers a correctly-scoped JSON error digest of the 2024-11-14 app logs (forced pattern counts 42/73/60/11, DATA-882 noise excluded, non-empty despite the historical date) and a template-compliant postmortem citing the forced impact facts (v2.14.0 deploy at 13:58, rollback 15:22, 97 5xx, 54 tickets) with a defensible pool-exhaustion root cause that refutes the disk theory."
+}

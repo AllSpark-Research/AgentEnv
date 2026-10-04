@@ -1,0 +1,21 @@
+schema_version = "1.4"
+[task]
+name = "skill2env/archive-extractor"
+[verifier]
+timeout_sec = 1800.0
+[agent]
+timeout_sec = 7200.0
+[environment]
+build_timeout_sec = 1800.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0
+
+[verifier.env]
+JUDGE_BASE_URL = "${JUDGE_BASE_URL}"
+JUDGE_MODEL = "${JUDGE_MODEL}"
+JUDGE_API_KEY = "${JUDGE_API_KEY:-local}"
+JUDGE_REASONING_EFFORT = "${JUDGE_REASONING_EFFORT:-}"
+JUDGE_THINK_KWARGS = "${JUDGE_THINK_KWARGS:-}"
+JUDGE_MAX_TOKENS = "${JUDGE_MAX_TOKENS:-32768}"

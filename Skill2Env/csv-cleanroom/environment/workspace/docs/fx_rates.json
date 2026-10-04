@@ -1,0 +1,10 @@
+{
+  "effective_date": "2024-06-30",
+  "usd_per_unit": {
+    "USD": 1.0,
+    "EUR": 1.08,
+    "GBP": 1.27
+  },
+  "approved_by": "Finance Ops",
+  "note": "Finance-approved snapshot rates (USD per 1 unit of source currency) for the Q2 2024 warehouse load. Use these exact rates."
+}

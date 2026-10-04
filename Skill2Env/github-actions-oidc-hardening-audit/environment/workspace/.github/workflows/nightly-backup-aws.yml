@@ -1,0 +1,22 @@
+name: nightly-backup-aws
+
+on:
+  schedule:
+    - cron: '30 1 * * *'
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: eu-west-1
+          role-to-assume: arn:aws:iam::444455556666:role/github-actions-prod-backup
+      - name: Snapshot database
+        run: aws rds create-db-snapshot --db-instance-identifier meridian-prod-db --db-snapshot-identifier nightly-$(date +%Y%m%d)
+      - name: Prune old snapshots
+        run: python3 scripts/prune_snapshots.py --keep 14

@@ -1,0 +1,46 @@
+{
+  "rubric": [
+    {
+      "id": "D-structure",
+      "description": "Injected-set structure meets the contract: the six core files (AGENTS/SOUL/USER/MEMORY/TOOLS/HEARTBEAT.md) remain at agent_workspace/ top level, each 100-1500 bytes; BOOTSTRAP.md and IDENTITY.md are deleted; total top-level *.md bytes <= 6000.",
+      "weight": 0.24,
+      "method": "deterministic"
+    },
+    {
+      "id": "D-facts",
+      "description": "Load-bearing facts survive in the injected set: the seven tokens 夜航星, NC-7, ~/.config/pearl/api_token.enc, 02:00-04:00, skill-vetter, memory-heat-system, prod-* all appear in the concatenated top-level agent_workspace/*.md.",
+      "weight": 0.14,
+      "method": "deterministic"
+    },
+    {
+      "id": "D-ondemand",
+      "description": "Detailed content migrated to on-demand storage: the audit-procedure marker (user_skill_install_audit.sh) and the 2024 memory archive marker (2024-11-03) are absent from top-level files but still present in non-top-level files inside agent_workspace/, and AGENTS.md keeps an on-demand pointer (rules/ or scripts/ or reference/).",
+      "weight": 0.12,
+      "method": "deterministic"
+    },
+    {
+      "id": "D-git",
+      "description": "The change is committed in the agent_workspace/ git repo: at least one new commit whose message indicates a context slimming, and a clean working tree afterwards.",
+      "weight": 0.10,
+      "method": "deterministic"
+    },
+    {
+      "id": "J-report",
+      "description": "SLIMMING_REPORT.md at the workspace ROOT (outside agent_workspace/) is accurate and decision-transparent.",
+      "weight": 0.22,
+      "method": "llm_judge",
+      "judge_instruction": "Evaluate SLIMMING_REPORT.md (must be at the workspace root; if it is only found inside agent_workspace/ that is a serious contract violation, cap the score at 0.3). Cross-check the report against the ACTUAL final state of agent_workspace/ by reading the files and, if possible, byte sizes. Score 0-1 on: (a) per-file before/after byte table whose 'after' numbers match the real final files (spot-check at least 3; systematic mismatch or fabricated numbers is a major failure); (b) every file action is stated with a reason (keep/rewrite/move/delete), including the BOOTSTRAP.md deletion and the IDENTITY.md merge; (c) a single-source-of-truth (唯一来源) table covering at least the safety red lines and the memory-management rules; (d) a moved-content map naming actual destination paths that really exist and contain the content; (e) an estimated per-round token saving using the bytes/3 heuristic that is arithmetically consistent with the reported numbers; (f) correct claim about the pre-slim baseline (18,975 bytes / 8 files). Full credit requires (a)-(f) all substantially correct; deduct heavily for invented numbers, unverifiable claims, or missing sections.",
+      "target_globs": ["SLIMMING_REPORT.md", "agent_workspace/**/*.md"]
+    },
+    {
+      "id": "J-fidelity",
+      "description": "Operational fidelity of the slimmed workspace: nothing capability-critical was lost, dedup is coherent, conflicts resolved correctly, and condensed files remain usable agent instructions.",
+      "weight": 0.18,
+      "method": "llm_judge",
+      "judge_instruction": "Read all top-level *.md files in agent_workspace/ plus the on-demand files the solver created (rules/, reference/, memory/ etc.). Score 0-1 on: (a) all seven safety red lines survive in substance in the injected context with AGENTS.md as their single full source (SOUL.md may reference but must not carry a conflicting full duplicate table); (b) identity merged coherently — SOUL.md carries name 夜航星 and codename NC-7 without contradiction; (c) cross-file duplication eliminated: memory-management detail should live behind the memory-heat-system reference, not verbatim in two injected files; (d) the heartbeat cadence conflict is resolved to 15 minutes (AGENTS.md defers to HEARTBEAT.md, which says 15 min) — a leftover '30 分钟' cadence claim in injected files is a real defect; (e) nothing fabricated: no new policies, red lines, credentials, or tool names that were absent from the original workspace; (f) the condensed files still read as coherent agent instructions (startup flow, priorities, persona, user preferences, tool locations), not keyword salad; (g) relocated detail genuinely retains its operational content (audit steps, command reference, historical incident) rather than one-line summaries. Deduct for lost capability, conflicting duplicates, fabricated content, or incoherent condensation; tolerate stylistic and layout variation.",
+      "target_globs": ["agent_workspace/*.md", "agent_workspace/**/*.md", "agent_workspace/**/*.txt", "agent_workspace/**/*.sh", "agent_workspace/**/*.json"]
+    }
+  ],
+  "pass_threshold": 0.7,
+  "rubric_summary": "A passing solution shrinks the OpenClaw workspace's injected set to the six core files within the 6000/1500-byte budget, deletes the stale bootstrap and duplicate identity files while rescuing NC-7, preserves all load-bearing facts, relocates heavy detail to on-demand files with pointers, resolves the cadence conflict, commits cleanly, and documents all of it in an accurate SLIMMING_REPORT.md at the workspace root."
+}

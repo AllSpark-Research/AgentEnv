@@ -1,0 +1,5 @@
+deployed_at_utc,service,version,actor,ticket,notes
+2024-11-13 10:12:00,inventory-service,v3.9.1,maya.k,INV-402,routine: stock reservation TTL tuning
+2024-11-13 22:40:00,cdn-config,cfg-118,deploy-bot,OPS-377,static asset cache headers only; no app change
+2024-11-14 13:58:00,checkout-api,v2.14.0,ren.a,DATA-881,"migrate session store from in-process memory to pooled Postgres sessions (pool_size=100, connection_ttl=0)"
+2024-11-14 15:22:00,checkout-api,v2.13.2,maya.k,INC-2024-1114,ROLLBACK of v2.14.0 after checkout errors; restores in-process session store

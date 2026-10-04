@@ -1,0 +1,11 @@
+asset,slot,usage_context,target_format,max_longest_edge_px,keep_alpha,max_bytes,notes
+hero_banner.tiff,homepage_hero,Homepage hero banner above the fold,webp,1600,false,230000,Largest above-the-fold image; watch weight
+product_front.png,product_card,Product listing card image (front),webp,1200,false,200000,
+product_side.bmp,product_card_alt,Product listing card image (angle),webp,1200,false,80000,
+team_photo.jpg,about_story,About page story section photo,webp,1400,false,160000,Agency shoot export; contains camera metadata
+press_release_photo.tiff,press_kit,Press kit download asset,jpeg,2000,false,350000,Press distribution service requires JPEG
+fallback_banner.bmp,promo_fallback,Promo banner fallback visual,webp,1920,false,125000,
+logo.png,header_logo,Brand mark rendered over gradient header,jpeg,400,true,40000,Must sit cleanly on the gradient background
+ui_icons.png,ui_library,Component library icon sprite sheet,png,,true,5500,Keep crisp edges; no forced downscale
+bg_tile.gif,page_background,Repeating page background tile,png,,false,5000,Keep original tile dimensions
+corrupt_export.png,misc_thumbnail,Misc placement thumbnail pending re-export,webp,800,false,100000,Design team warned this export may be damaged

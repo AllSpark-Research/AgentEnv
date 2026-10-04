@@ -1,0 +1,5 @@
+You can use the skill documented at `_skill_ref/SKILL.md` (and its scripts under `_skill_ref/`) to help complete this task.
+
+Focus on completing the user's request. Avoid additional work that goes beyond what the user asked for, unless it is necessary to ensure the correctness of the result.
+
+I'm the digital asset coordinator at Cascade & Pine Outfitters. We just received photographer Riley Alvarez's raw drop for the Spring 2024 (SPC-24) campaign in ./incoming_photos/ — it's a mess: inconsistent names, duplicates, version variants, and random clutter. Prepare it for DAM import exactly per ./dam_ingest_spec.md, using ./shot_list.csv as the authoritative list of expected shots. Deliverables: a ./dam_ready/ tree with the import-ready assets organized and tagged per spec plus its manifest.csv, and a ./quarantine/ tree with everything excluded, as the spec defines. Hard rule: nothing under ./incoming_photos/ may be modified — it's the legal raw drop. The DAM importer fails the whole batch on any deviation, so double-check your output before finishing.

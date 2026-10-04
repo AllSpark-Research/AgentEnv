@@ -1,0 +1,36 @@
+{
+  "rubric": [
+    {
+      "id": "pages_set",
+      "description": "收录集合正确：study_pack/ 中恰好有 3 个按命名约定（YYYYMMDD_<黑方姓名>_vs_<白方姓名>.html）命名的打谱网页；不得包含重复件、往年旧谱、B 组选拔对局、定式库、9 路棋或损坏文件对应的页面（STUDY_PLAN.md §2/§3）。",
+      "weight": 0.20,
+      "method": "deterministic"
+    },
+    {
+      "id": "page_fidelity",
+      "description": "每个打谱网页内容忠实于源棋谱：双方姓名正确且无乱码（GB2312 已正确转码或选用了 UTF-8 重复件）、结果文本正确（B+R / W+2.5 / W+R）、19 路棋盘、内嵌棋谱树的总节点数/分支数/最大深度与源棋谱一致（道场统一工具生成的证据）。",
+      "weight": 0.30,
+      "method": "deterministic"
+    },
+    {
+      "id": "deep_link",
+      "description": "复盘课关键手深链：三个网页的默认打开手数分别为 117、84、0（无标记的让子棋）。主分支上仅 TE[1] 或注释中的【关键手】算标记；BM[1] 与一般胜率注释不算（STUDY_PLAN.md §3）。",
+      "weight": 0.20,
+      "method": "deterministic"
+    },
+    {
+      "id": "manifest",
+      "description": "study_pack/manifest.json 恰好 3 局，且 source（重复件二选一）、page、date、black、white、result、main_line_moves（主链着法数含虚手：151/168/96）、branch_count（4/3/1）、start_move 全部符合规范口径（STUDY_PLAN.md §4）。",
+      "weight": 0.20,
+      "method": "deterministic"
+    },
+    {
+      "id": "consistency",
+      "description": "清单与网页内部一致：manifest 引用的页面文件实际存在，start_move 与网页 DEFAULT_MOVE 一致，branch_count/main_line_moves 与网页内嵌树一致（家长会逐条核对）。",
+      "weight": 0.10,
+      "method": "deterministic"
+    }
+  ],
+  "pass_threshold": 0.7,
+  "rubric_summary": "按 STUDY_PLAN.md 从 9 份混杂素材中筛出恰好 3 盘符合条件的 A 组内部对局，用统一 SGF 打谱工具生成内容忠实、命名规范、直达关键手（117/84/0）的互动网页，并产出与网页一致、统计口径准确的 manifest.json。"
+}

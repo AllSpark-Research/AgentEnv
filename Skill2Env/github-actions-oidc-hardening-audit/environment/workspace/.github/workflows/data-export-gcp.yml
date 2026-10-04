@@ -1,0 +1,21 @@
+name: data-export-gcp
+
+on:
+  workflow_dispatch:
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Write service account key
+        run: echo "${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}" > "$HOME/sa-key.json"
+      - name: Activate service account
+        run: |
+          gcloud auth activate-service-account --key-file="$HOME/sa-key.json"
+          gcloud config set project meridian-data-prod
+      - name: Export dataset
+        run: bq extract --project_id=meridian-data-prod 'analytics.events_*' gs://meridian-data-exports/events-*.json.gz
+      - name: Clean up key
+        if: always()
+        run: shred -u "$HOME/sa-key.json" || true

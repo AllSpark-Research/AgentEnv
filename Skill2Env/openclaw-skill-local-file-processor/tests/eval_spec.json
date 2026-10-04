@@ -1,0 +1,36 @@
+{
+  "rubric": [
+    {
+      "id": "R1",
+      "description": "Correct deliverable set: dam_ready/ contains exactly the 17 expected files at canonical paths (<category>/<product>_<shotid>.<ext>, lowercased) with extensions decided by the conversion rules (opaque PNG shots 003/015 become .jpg; alpha PNG shots 006/011 stay .png; shot 005 from the higher-res _v2 source), plus manifest.csv and no unexpected files.",
+      "weight": 0.30,
+      "method": "deterministic"
+    },
+    {
+      "id": "R2",
+      "description": "Quarantine correctness and source integrity: quarantine/duplicates/ has exactly the 2 byte-identical copies (IMG_1012 copy.JPG, DSC0042.JPG), quarantine/superseded/ the listed DSC_0043.JPG, quarantine/unlisted/ the 2 unlisted images, quarantine/other/ notes.txt + .DS_Store — all byte-identical to the originals, under original basenames; incoming_photos/ remains byte-identical (24/24 pinned hashes) with no additions.",
+      "weight": 0.15,
+      "method": "deterministic"
+    },
+    {
+      "id": "R3",
+      "description": "Conversion and content fidelity: converted PNG->JPEG files keep dimensions and near-identical pixels (JPEG, RGB); alpha PNGs keep PNG format, real transparency, and pixel-exact data; plain JPEG deliverables preserve original image data (mean pixel drift ~0, proving lossless metadata embedding rather than recompression); rj1_005.jpg carries the 2400x1800 v2 image.",
+      "weight": 0.20,
+      "method": "deterministic"
+    },
+    {
+      "id": "R4",
+      "description": "Rights metadata on all 17 deliverables: JPEG EXIF Artist(315)='Riley Alvarez' and Copyright(33432)='Copyright 2024 Cascade & Pine Outfitters'; PNG text chunks Author and Copyright with the same values; exact, case-sensitive.",
+      "weight": 0.15,
+      "method": "deterministic"
+    },
+    {
+      "id": "R5",
+      "description": "manifest.csv precision: exact 8-column header (shot_id,product_code,category,final_path,source_filename,actions,sha256,quarantined_files), 17 rows sorted by shot_id, correct mapping fields, correct actions tokens (COPY / CONVERT_PNG_TO_JPG / USE_SUPERSEDED_SOURCE), sha256 equal to the FINAL delivered file bytes, and correct quarantined_files basenames per shot.",
+      "weight": 0.20,
+      "method": "deterministic"
+    }
+  ],
+  "pass_threshold": 0.7,
+  "rubric_summary": "A passing solution reconciles the raw photo drop against the shot list and ingestion spec: correct 17-file deliverable tree (incl. the v2-supersession and alpha-aware conversion), correct quarantine buckets with untouched sources, lossless metadata embedding, and an exact audit manifest."
+}

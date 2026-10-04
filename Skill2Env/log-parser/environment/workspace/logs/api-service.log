@@ -1,0 +1,280 @@
+{"timestamp": "2024-11-17T16:07:56Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=32"}
+{"timestamp": "2024-11-17T16:15:37Z", "level": "INFO", "service": "auth", "message": "session refresh ok user_id=2930"}
+{"timestamp": "2024-11-17T16:17:47Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=15"}
+{"timestamp": "2024-11-17T16:22:51Z", "level": "INFO", "service": "orders", "message": "order ORD-57353 confirmed"}
+{"timestamp": "2024-11-17T16:29:45Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=33"}
+{"timestamp": "2024-11-17T16:34:27Z", "level": "INFO", "service": "auth", "message": "session refresh ok user_id=1000"}
+{"timestamp": "2024-11-17T16:35:19Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-17T16:37:25Z", "level": "INFO", "service": "orders", "message": "order ORD-71320 confirmed"}
+{"timestamp": "2024-11-17T16:49:29Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-17T16:56:44Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=21"}
+{"timestamp": "2024-11-17T16:57:59Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=26"}
+{"timestamp": "2024-11-17T17:01:03Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-17T17:03:07Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=25"}
+{"timestamp": "2024-11-17T17:05:49Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-17T17:21:53Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-17T17:28:40Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=26"}
+{"timestamp": "2024-11-17T17:31:35Z", "level": "INFO", "service": "orders", "message": "order ORD-40988 confirmed"}
+{"timestamp": "2024-11-17T17:52:37Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-17T17:53:24Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-17T17:53:25Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-17T17:54:19Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-17T18:00:46Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=17"}
+{"timestamp": "2024-11-17T18:09:44Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-17T18:10:16Z", "level": "INFO", "service": "auth", "message": "session refresh ok user_id=431"}
+{"timestamp": "2024-11-17T18:12:44Z", "level": "ERROR", "service": "payments", "message": "payment webhook delivery failed (attempt 3), will retry"}
+{"timestamp": "2024-11-17T18:17:29Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-17T18:33:09Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-17T18:42:21Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-17T18:45:26Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=39"}
+{"timestamp": "2024-11-17T18:55:41Z", "level": "INFO", "service": "auth", "message": "session refresh ok user_id=3908"}
+{"timestamp": "2024-11-17T19:12:24Z", "level": "INFO", "service": "orders", "message": "order ORD-82895 confirmed"}
+{"timestamp": "2024-11-17T19:14:04Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-17T19:14:27Z", "level": "INFO", "service": "auth", "message": "session refresh ok user_id=1450"}
+{"timestamp": "2024-11-17T19:14:35Z", "level": "INFO", "service": "orders", "message": "order ORD-96591 confirmed"}
+{"timestamp": "2024-11-17T19:17:20Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-17T19:25:26Z", "level": "INFO", "service": "orders", "message": "order ORD-49279 confirmed"}
+{"timestamp": "2024-11-17T19:28:51Z", "level": "INFO", "service": "orders", "message": "order ORD-78652 confirmed"}
+{"timestamp": "2024-11-17T19:36:55Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=36"}
+{"timestamp": "2024-11-17T19:49:15Z", "level": "INFO", "service": "orders", "message": "order ORD-67567 confirmed"}
+{"timestamp": "2024-11-17T19:50:54Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=29"}
+{"timestamp": "2024-11-17T20:00:10Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-17T20:12:08Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-17T20:12:10Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-17T20:24:33Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-17T20:25:21Z", "level": "INFO", "service": "orders", "message": "order ORD-58897 confirmed"}
+{"timestamp": "2024-11-17T20:35:17Z", "level": "ERROR", "service": "payments", "message": "payment webhook signature verification failed for endpoint wh-7"}
+{"timestamp": "2024-11-17T20:35:49Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-17T21:17:50Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=34"}
+{"timestamp": "2024-11-17T21:29:54Z", "level": "INFO", "service": "auth", "message": "session refresh ok user_id=3670"}
+{"timestamp": "2024-11-17T21:31:05Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-17T21:38:48Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-17T21:39:18Z", "level": "INFO", "service": "orders", "message": "order ORD-42528 confirmed"}
+{"timestamp": "2024-11-17T21:40:51Z", "level": "INFO", "service": "auth", "message": "session refresh ok user_id=2527"}
+{"timestamp": "2024-11-17T21:42:21Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=33"}
+{"timestamp": "2024-11-17T21:51:13Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-17T21:56:44Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-17T22:03:59Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-17T22:23:48Z", "level": "INFO", "service": "orders", "message": "order ORD-86135 confirmed"}
+{"timestamp": "2024-11-17T22:41:04Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=14"}
+{"timestamp": "2024-11-17T22:47:06Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-17T22:50:26Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-17T22:59:24Z", "level": "INFO", "service": "orders", "message": "order ORD-36719 confirmed"}
+{"timestamp": "2024-11-17T23:04:36Z", "level": "INFO", "service": "auth", "message": "session refresh ok user_id=2050"}
+{"timestamp": "2024-11-17T23:11:56Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=6"}
+{"timestamp": "2024-11-17T23:15:45Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-17T23:20:27Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-17T23:29:54Z", "level": "INFO", "service": "auth", "message": "session refresh ok user_id=2041"}
+{"timestamp": "2024-11-17T23:30:03Z", "level": "INFO", "service": "orders", "message": "order ORD-31905 confirmed"}
+{"timestamp": "2024-11-17T23:40:45Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=27"}
+{"timestamp": "2024-11-17T23:41:33Z", "level": "INFO", "service": "orders", "message": "order ORD-25283 confirmed"}
+{"timestamp": "2024-11-17T23:56:53Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-17T23:57:20Z", "level": "INFO", "service": "auth", "message": "session refresh ok user_id=2843"}
+{"timestamp": "2024-11-18T00:06:44Z", "level": "INFO", "service": "orders", "message": "order ORD-86512 confirmed"}
+{"timestamp": "2024-11-18T00:07:38Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-18T00:11:03Z", "level": "INFO", "service": "orders", "message": "order ORD-43315 confirmed"}
+{"timestamp": "2024-11-18T00:16:00Z", "level": "INFO", "service": "orders", "message": "order ORD-58141 confirmed"}
+{"timestamp": "2024-11-18T00:26:14Z", "level": "INFO", "service": "auth", "message": "session refresh ok user_id=2327"}
+{"timestamp": "2024-11-18T00:35:39Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=7"}
+{"timestamp": "2024-11-18T00:54:24Z", "level": "INFO", "service": "orders", "message": "order ORD-25320 confirmed"}
+{"timestamp": "2024-11-18T00:59:39Z", "level": "INFO", "service": "auth", "message": "session refresh ok user_id=2862"}
+{"timestamp": "2024-11-18T01:08:08Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-18T01:12:05Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-18T01:40:20Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-18T01:52:41Z", "level": "INFO", "service": "orders", "message": "order ORD-83202 confirmed"}
+{"timestamp": "2024-11-18T02:03:37Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=7"}
+{"timestamp": "2024-11-18T02:04:30Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-18T02:05:17Z", "level": "WARN", "service": "catalog", "message": "cache hit ratio below 0.85, warming"}
+{"timestamp": "2024-11-18T02:05:57Z", "level": "INFO", "service": "auth", "message": "session refresh ok user_id=3455"}
+{"timestamp": "2024-11-18T02:10:25Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-18T02:11:38Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-18T02:32:55Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=38"}
+{"timestamp": "2024-11-18T02:34:28Z", "level": "INFO", "service": "orders", "message": "order ORD-47899 confirmed"}
+{"timestamp": "2024-11-18T02:36:14Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=20"}
+{"timestamp": "2024-11-18T02:59:54Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-18T03:00:33Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=28"}
+{"timestamp": "2024-11-18T03:07:55Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-18T03:14:07Z", "level": "INFO", "service": "orders", "message": "order ORD-13099 confirmed"}
+{"timestamp": "2024-11-18T03:14:47Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-18T03:27:22Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-18T03:35:56Z", "level": "INFO", "service": "orders", "message": "order ORD-85540 confirmed"}
+{"timestamp": "2024-11-18T03:42:54Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-18T03:46:59Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-18T03:58:29Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-18T04:03:11Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-18T04:12:01Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=18"}
+{"timestamp": "2024-11-18T04:13:01Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-18T04:20:47Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-18T04:27:31Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-18T04:29:04Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=9"}
+{"timestamp": "2024-11-18T04:46:13Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-18T04:47:47Z", "level": "INFO", "service": "orders", "message": "order ORD-10052 confirmed"}
+{"timestamp": "2024-11-18T05:04:12Z", "level": "INFO", "service": "auth", "message": "session refresh ok user_id=2588"}
+{"timestamp": "2024-11-18T05:11:42Z", "level": "INFO", "service": "auth", "message": "session refresh ok user_id=946"}
+{"timestamp": "2024-11-18T05:15:28Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-18T05:24:45Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=14"}
+{"timestamp": "2024-11-18T05:24:46Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=36"}
+{"timestamp": "2024-11-18T05:32:12Z", "level": "INFO", "service": "orders", "message": "order ORD-57676 confirmed"}
+{"timestamp": "2024-11-18T05:33:20Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-18T05:36:51Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-18T05:49:06Z", "level": "INFO", "service": "orders", "message": "order ORD-17031 confirmed"}
+{"timestamp": "2024-11-18T05:53:51Z", "level": "INFO", "service": "auth", "message": "session refresh ok user_id=2252"}
+{"timestamp": "2024-11-18T05:57:01Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-18T06:09:57Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=11"}
+{"timestamp": "2024-11-18T06:12:55Z", "level": "INFO", "service": "orders", "message": "order ORD-67359 confirmed"}
+{"timestamp": "2024-11-18T06:27:12Z", "level": "INFO", "service": "orders", "message": "order ORD-66327 confirmed"}
+{"timestamp": "2024-11-18T06:31:28Z", "level": "INFO", "service": "orders", "message": "order ORD-73111 confirmed"}
+{"timestamp": "2024-11-18T06:33:01Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-18T06:38:48Z", "level": "INFO", "service": "auth", "message": "session refresh ok user_id=1196"}
+{"timestamp": "2024-11-18T06:42:19Z", "level": "INFO", "service": "auth", "message": "session refresh ok user_id=559"}
+{"timestamp": "2024-11-18T06:44:44Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=40"}
+{"timestamp": "2024-11-18T07:01:02Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-18T07:03:31Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-18T07:09:52Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-18T07:30:39Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=30"}
+{"timestamp": "2024-11-18T07:34:39Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=26"}
+{"timestamp": "2024-11-18T07:38:51Z", "level": "INFO", "service": "auth", "message": "session refresh ok user_id=3466"}
+{"timestamp": "2024-11-18T07:39:35Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-18T07:40:02Z", "level": "WARN", "service": "payments", "message": "webhook endpoint wh-3 latency p95 900ms"}
+{"timestamp": "2024-11-18T07:57:41Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-18T08:13:42Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-18T08:15:35Z", "level": "INFO", "service": "auth", "message": "session refresh ok user_id=121"}
+{"timestamp": "2024-11-18T08:54:59Z", "level": "INFO", "service": "orders", "message": "order ORD-39195 confirmed"}
+{"timestamp": "2024-11-18T08:57:56Z", "level": "INFO", "service": "auth", "message": "session refresh ok user_id=1786"}
+{"timestamp": "2024-11-18T09:15:13Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=9"}
+{"timestamp": "2024-11-18T09:17:27Z", "level": "INFO", "service": "auth", "message": "session refresh ok user_id=2456"}
+{"timestamp": "2024-11-18T09:18:16Z", "level": "INFO", "service": "orders", "message": "order ORD-52788 confirmed"}
+{"timestamp": "2024-11-18T09:34:00Z", "level": "INFO", "service": "orders", "message": "order ORD-32787 confirmed"}
+{"timestamp": "2024-11-18T09:37:03Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-18T09:56:11Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-18T10:01:31Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-18T10:09:57Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-18T10:24:43Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-18T10:33:28Z", "level": "INFO", "service": "orders", "message": "order ORD-24749 confirmed"}
+{"timestamp": "2024-11-18T10:38:49Z", "level": "INFO", "service": "auth", "message": "session refresh ok user_id=1940"}
+{"timestamp": "2024-11-18T10:44:18Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-18T11:02:39Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=4"}
+{"timestamp": "2024-11-18T11:13:19Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=20"}
+{"timestamp": "2024-11-18T11:14:23Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-18T11:16:48Z", "level": "INFO", "service": "orders", "message": "order ORD-69640 confirmed"}
+{"timestamp": "2024-11-18T11:28:26Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-18T11:47:05Z", "level": "INFO", "service": "auth", "message": "session refresh ok user_id=1060"}
+{"timestamp": "2024-11-18T11:47:15Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=7"}
+{"timestamp": "2024-11-18T11:53:49Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=36"}
+{"timestamp": "2024-11-18T11:53:51Z", "level": "INFO", "service": "orders", "message": "order ORD-68082 confirmed"}
+{"timestamp": "2024-11-18T11:59:53Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-18T12:02:28Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-18T12:17:28Z", "level": "INFO", "service": "orders", "message": "order ORD-69641 confirmed"}
+{"timestamp": "2024-11-18T12:17:44Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-18T12:22:18Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-18T12:30:50Z", "level": "INFO", "service": "orders", "message": "order ORD-36289 confirmed"}
+{"timestamp": "2024-11-18T12:35:17Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-18T12:41:40Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-18T12:45:31Z", "level": "INFO", "service": "auth", "message": "session refresh ok user_id=3194"}
+{"timestamp": "2024-11-18T12:50:59Z", "level": "INFO", "service": "orders", "message": "order ORD-32393 confirmed"}
+{"timestamp": "2024-11-18T13:07:22Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=555 after repeated failures"}
+{"timestamp": "2024-11-18T13:07:32Z", "level": "ERROR", "service": "api-gateway", "message": "upstream 5xx rate exceeded 10% over 5m window, page on-call"}
+{"timestamp": "2024-11-18T13:07:47Z", "level": "ERROR", "service": "orders", "message": "database connection pool exhausted (pool=primary, active=64/64), request queued"}
+{"timestamp": "2024-11-18T13:11:11Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=1475 after repeated failures"}
+{"timestamp": "2024-11-18T13:11:39Z", "level": "ERROR", "service": "orders", "message": "database connection pool exhausted (pool=primary, active=64/64), request queued"}
+{"timestamp": "2024-11-18T13:15:07Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=2967 after repeated failures"}
+{"timestamp": "2024-11-18T13:16:02Z", "level": "ERROR", "service": "orders", "message": "database connection pool exhausted (pool=primary, active=64/64), request queued"}
+{"timestamp": "2024-11-18T13:17:44Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-18T13:18:57Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=344 after repeated failures"}
+{"timestamp": "2024-11-18T13:20:01Z", "level": "ERROR", "service": "orders", "message": "database connection pool exhausted (pool=primary, active=64/64), request queued"}
+{"timestamp": "2024-11-18T13:22:33Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=610 after repeated failures"}
+{"timestamp": "2024-11-18T13:23:25Z", "level": "ERROR", "service": "api-gateway", "message": "upstream 5xx rate exceeded 10% over 5m window, page on-call"}
+{"timestamp": "2024-11-18T13:24:29Z", "level": "ERROR", "service": "orders", "message": "database connection pool exhausted (pool=primary, active=64/64), request queued"}
+{"timestamp": "2024-11-18T13:26:22Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=1538 after repeated failures"}
+{"timestamp": "2024-11-18T13:28:44Z", "level": "ERROR", "service": "orders", "message": "database connection pool exhausted (pool=primary, active=64/64), request queued"}
+{"timestamp": "2024-11-18T13:29:46Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=3233 after repeated failures"}
+{"timestamp": "2024-11-18T13:32:56Z", "level": "ERROR", "service": "orders", "message": "database connection pool exhausted (pool=primary, active=64/64), request queued"}
+{"timestamp": "2024-11-18T13:33:42Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=1283 after repeated failures"}
+{"timestamp": "2024-11-18T13:34:10Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-18T13:37:30Z", "level": "ERROR", "service": "orders", "message": "database connection pool exhausted (pool=primary, active=64/64), request queued"}
+{"timestamp": "2024-11-18T13:37:45Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=3275 after repeated failures"}
+{"timestamp": "2024-11-18T13:38:20Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=37"}
+{"timestamp": "2024-11-18T13:39:30Z", "level": "ERROR", "service": "api-gateway", "message": "upstream 5xx rate exceeded 10% over 5m window, page on-call"}
+{"timestamp": "2024-11-18T13:41:03Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=1193 after repeated failures"}
+{"timestamp": "2024-11-18T13:41:26Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=16"}
+{"timestamp": "2024-11-18T13:41:26Z", "level": "ERROR", "service": "orders", "message": "database connection pool exhausted (pool=primary, active=64/64), request queued"}
+{"timestamp": "2024-11-18T13:44:52Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=1685 after repeated failures"}
+{"timestamp": "2024-11-18T13:45:55Z", "level": "ERROR", "service": "orders", "message": "database connection pool exhausted (pool=primary, active=64/64), request queued"}
+{"timestamp": "2024-11-18T13:47:25Z", "level": "INFO", "service": "orders", "message": "order ORD-91558 confirmed"}
+{"timestamp": "2024-11-18T13:48:42Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=2056 after repeated failures"}
+{"timestamp": "2024-11-18T13:50:03Z", "level": "ERROR", "service": "orders", "message": "database connection pool exhausted (pool=primary, active=64/64), request queued"}
+{"timestamp": "2024-11-18T13:51:14Z", "level": "ERROR", "service": "auth", "message": "login succeeded with previously leaked credential: user m.hansen from 185.220.101.47"}
+{"timestamp": "2024-11-18T13:51:21Z", "level": "WARN", "service": "risk-engine", "message": "session sid=812066 flagged high risk (ip=185.220.101.47)"}
+{"timestamp": "2024-11-18T13:52:43Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=1071 after repeated failures"}
+{"timestamp": "2024-11-18T13:54:26Z", "level": "ERROR", "service": "orders", "message": "database connection pool exhausted (pool=primary, active=64/64), request queued"}
+{"timestamp": "2024-11-18T13:55:13Z", "level": "ERROR", "service": "api-gateway", "message": "upstream 5xx rate exceeded 10% over 5m window, page on-call"}
+{"timestamp": "2024-11-18T13:56:28Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=2087 after repeated failures"}
+{"timestamp": "2024-11-18T13:56:41Z", "level": "INFO", "service": "auth", "message": "session refresh ok user_id=2467"}
+{"timestamp": "2024-11-18T13:58:09Z", "level": "ERROR", "service": "orders", "message": "database connection pool exhausted (pool=primary, active=64/64), request queued"}
+{"timestamp": "2024-11-18T13:59:46Z", "level": "INFO", "service": "auth", "message": "session refresh ok user_id=1680"}
+{"timestamp": "2024-11-18T13:59:53Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=1705 after repeated failures"}
+{"timestamp": "2024-11-18T14:00:58Z", "level": "INFO", "service": "auth", "message": "session refresh ok user_id=3259"}
+{"timestamp": "2024-11-18T14:02:51Z", "level": "ERROR", "service": "orders", "message": "database connection pool exhausted (pool=primary, active=64/64), request queued"}
+{"timestamp": "2024-11-18T14:03:43Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=2512 after repeated failures"}
+{"timestamp": "2024-11-18T14:05:44Z", "level": "WARN", "service": "auth", "message": "anomalous session velocity from 185.220.101.47 flagged (14 countries)"}
+{"timestamp": "2024-11-18T14:06:41Z", "level": "ERROR", "service": "orders", "message": "database connection pool exhausted (pool=primary, active=64/64), request queued"}
+{"timestamp": "2024-11-18T14:07:28Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=438 after repeated failures"}
+{"timestamp": "2024-11-18T14:10:52Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-18T14:10:58Z", "level": "ERROR", "service": "orders", "message": "database connection pool exhausted (pool=primary, active=64/64), request queued"}
+{"timestamp": "2024-11-18T14:11:18Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=862 after repeated failures"}
+{"timestamp": "2024-11-18T14:11:19Z", "level": "ERROR", "service": "api-gateway", "message": "upstream 5xx rate exceeded 10% over 5m window, page on-call"}
+{"timestamp": "2024-11-18T14:11:21Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=26"}
+{"timestamp": "2024-11-18T14:15:05Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=2396 after repeated failures"}
+{"timestamp": "2024-11-18T14:15:17Z", "level": "INFO", "service": "orders", "message": "order ORD-92202 confirmed"}
+{"timestamp": "2024-11-18T14:15:41Z", "level": "ERROR", "service": "orders", "message": "database connection pool exhausted (pool=primary, active=64/64), request queued"}
+{"timestamp": "2024-11-18T14:17:08Z", "level": "INFO", "service": "orders", "message": "order ORD-68486 confirmed"}
+{"timestamp": "2024-11-18T14:18:32Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-18T14:18:42Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=1296 after repeated failures"}
+{"timestamp": "2024-11-18T14:18:47Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=19"}
+{"timestamp": "2024-11-18T14:19:35Z", "level": "ERROR", "service": "orders", "message": "database connection pool exhausted (pool=primary, active=64/64), request queued"}
+{"timestamp": "2024-11-18T14:22:22Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=1003 after repeated failures"}
+{"timestamp": "2024-11-18T14:23:30Z", "level": "INFO", "service": "orders", "message": "order ORD-47072 confirmed"}
+{"timestamp": "2024-11-18T14:23:51Z", "level": "ERROR", "service": "orders", "message": "database connection pool exhausted (pool=primary, active=64/64), request queued"}
+{"timestamp": "2024-11-18T14:24:57Z", "level": "INFO", "service": "auth", "message": "session refresh ok user_id=2922"}
+{"timestamp": "2024-11-18T14:26:26Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=1471 after repeated failures"}
+{"timestamp": "2024-11-18T14:27:12Z", "level": "ERROR", "service": "api-gateway", "message": "upstream 5xx rate exceeded 10% over 5m window, page on-call"}
+{"timestamp": "2024-11-18T14:28:31Z", "level": "ERROR", "service": "orders", "message": "database connection pool exhausted (pool=primary, active=64/64), request queued"}
+{"timestamp": "2024-11-18T14:29:47Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=3357 after repeated failures"}
+{"timestamp": "2024-11-18T14:30:08Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-18T14:32:11Z", "level": "ERROR", "service": "orders", "message": "database connection pool exhausted (pool=primary, active=64/64), request queued"}
+{"timestamp": "2024-11-18T14:33:31Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=1737 after repeated failures"}
+{"timestamp": "2024-11-18T14:36:30Z", "level": "ERROR", "service": "orders", "message": "database connection pool exhausted (pool=primary, active=64/64), request queued"}
+{"timestamp": "2024-11-18T14:37:15Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=1493 after repeated failures"}
+{"timestamp": "2024-11-18T14:40:54Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=2384 after repeated failures"}
+{"timestamp": "2024-11-18T14:41:02Z", "level": "ERROR", "service": "orders", "message": "database connection pool exhausted (pool=primary, active=64/64), request queued"}
+{"timestamp": "2024-11-18T14:43:05Z", "level": "ERROR", "service": "api-gateway", "message": "upstream 5xx rate exceeded 10% over 5m window, page on-call"}
+{"timestamp": "2024-11-18T14:44:46Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=3504 after repeated failures"}
+{"timestamp": "2024-11-18T14:44:59Z", "level": "ERROR", "service": "orders", "message": "database connection pool exhausted (pool=primary, active=64/64), request queued"}
+{"timestamp": "2024-11-18T14:48:24Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=2643 after repeated failures"}
+{"timestamp": "2024-11-18T14:49:13Z", "level": "ERROR", "service": "orders", "message": "database connection pool exhausted (pool=primary, active=64/64), request queued"}
+{"timestamp": "2024-11-18T14:52:13Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=2055 after repeated failures"}
+{"timestamp": "2024-11-18T14:53:39Z", "level": "ERROR", "service": "orders", "message": "database connection pool exhausted (pool=primary, active=64/64), request queued"}
+{"timestamp": "2024-11-18T14:55:59Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=2176 after repeated failures"}
+{"timestamp": "2024-11-18T14:57:52Z", "level": "ERROR", "service": "orders", "message": "database connection pool exhausted (pool=primary, active=64/64), request queued"}
+{"timestamp": "2024-11-18T14:58:53Z", "level": "ERROR", "service": "api-gateway", "message": "upstream 5xx rate exceeded 10% over 5m window, page on-call"}
+{"timestamp": "2024-11-18T14:59:57Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=2955 after repeated failures"}
+{"timestamp": "2024-11-18T15:00:16Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-18T15:02:16Z", "level": "ERROR", "service": "orders", "message": "database connection pool exhausted (pool=primary, active=64/64), request queued"}
+{"timestamp": "2024-11-18T15:02:23Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=17"}
+{"timestamp": "2024-11-18T15:02:36Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-18T15:03:41Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=1233 after repeated failures"}
+{"timestamp": "2024-11-18T15:06:37Z", "level": "ERROR", "service": "orders", "message": "database connection pool exhausted (pool=primary, active=64/64), request queued"}
+{"timestamp": "2024-11-18T15:07:15Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=917 after repeated failures"}
+{"timestamp": "2024-11-18T15:10:24Z", "level": "ERROR", "service": "orders", "message": "database connection pool exhausted (pool=primary, active=64/64), request queued"}
+{"timestamp": "2024-11-18T15:11:12Z", "level": "WARN", "service": "auth", "message": "account lockout triggered for user_id=2222 after repeated failures"}
+{"timestamp": "2024-11-18T15:12:02Z", "level": "INFO", "service": "catalog", "message": "product cache refreshed (sku_count=4821)"}
+{"timestamp": "2024-11-18T15:14:30Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=10"}
+{"timestamp": "2024-11-18T15:15:01Z", "level": "WARN", "service": "risk-engine", "message": "session sid=822034 flagged high risk (ip=185.220.101.47)"}
+{"timestamp": "2024-11-18T15:16:00Z", "level": "INFO", "service": "orders", "message": "order ORD-56368 confirmed"}
+{"timestamp": "2024-11-18T15:18:59Z", "level": "INFO", "service": "auth", "message": "session refresh ok user_id=1263"}
+{"timestamp": "2024-11-18T15:22:30Z", "level": "INFO", "service": "payments", "message": "payout batch scheduled"}
+{"timestamp": "2024-11-18T15:27:30Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=32"}
+{"timestamp": "2024-11-18T15:38:12Z", "level": "INFO", "service": "search", "message": "query served q=shoes latency_ms=6"}
+{"timestamp": "2024-11-18T15:40:21Z", "level": "INFO", "service": "auth", "message": "session refresh ok user_id=268"}
+{"timestamp": "2024-11-18T15:47:32Z", "level": "INFO", "service": "orders", "message": "order ORD-10353 confirmed"}
+{"timestamp": "2024-11-18T15:59:08Z", "level": "INFO", "service": "auth", "message": "session refresh ok user_id=3610"}

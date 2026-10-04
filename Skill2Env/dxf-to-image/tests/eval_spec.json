@@ -1,0 +1,41 @@
+{
+  "rubric": [
+    {
+      "id": "manifest_basics",
+      "description": "manifest.json exists, parses, contains one entry per cad_exports file with the required schema fields, and every status is correct (R2/R3 superseded, drainage failed, landscape recovered/ok, others ok).",
+      "weight": 0.2,
+      "method": "deterministic"
+    },
+    {
+      "id": "manifest_metrics",
+      "description": "Per-file QA metrics are accurate: entity_count counts graphical entities across model AND paper space; layers are the layers actually containing entities; extents match the true bounding box of all entities.",
+      "weight": 0.25,
+      "method": "deterministic"
+    },
+    {
+      "id": "previews",
+      "description": "previews/ contains exactly the four current-drawing PNGs (site_plan_R3a, annex_building, utilities_R1, landscape_R4), each ~1200px wide and actually showing drawing content (the annex preview must not be the blank model-space render).",
+      "weight": 0.3,
+      "method": "deterministic"
+    },
+    {
+      "id": "svg_revision",
+      "description": "web/site_plan.svg is a valid SVG rendered from the CURRENT site plan revision R3a (geometry signature), not the superseded R2/R3.",
+      "weight": 0.15,
+      "method": "deterministic"
+    },
+    {
+      "id": "qa_report",
+      "description": "qa_report.md is an accurate, useful defect report for the project manager.",
+      "weight": 0.1,
+      "method": "llm_judge",
+      "target_globs": [
+        "qa_report.md",
+        "manifest.json"
+      ],
+      "judge_instruction": "Score 0..1 on how accurately and usefully qa_report.md reports the drawing-package QA story to a project manager. Award credit for each of these, grounded in the actual workspace evidence (transmittal.md, cad_exports/, manifest.json): (1) drainage_R1.dxf could not be rendered because the file is not really a DXF (binary/DWG content despite the .dxf name) and correctly states it needs a re-issue rather than being fixable locally; (2) landscape_R4.dxf was corrupt/truncated and had to be recovered or repaired before rendering, consistent with the mangled-transfer note in the transmittal; (3) annex_building.dxf has its content only in paper space so a naive model-space conversion yields a blank image, and the report reflects that the preview was produced from the paper-space sheet; (4) the site plan revision choice is explained (R3a is current; R2/R3 superseded, R3 had the north-arrow/pond errors). Deduct for fabricated problems, wrong attributions, or claims contradicted by manifest.json/previews. The writing should be brief, clear, and actionable for a non-CAD-specialist PM. 1.0 = all four points correct and clearly communicated; 0.5 = some defects correctly described but at least one major one missed or mis-diagnosed; 0 = missing file, generic boilerplate, or fabricated content."
+    }
+  ],
+  "pass_threshold": 0.7,
+  "rubric_summary": "A passing solution ships exactly the four current-drawing previews (non-blank, ~1200px), an SVG from revision R3a, a manifest with correct statuses and accurate all-layout CAD metrics for all six files, and a QA note that correctly diagnoses the three defective exports."
+}

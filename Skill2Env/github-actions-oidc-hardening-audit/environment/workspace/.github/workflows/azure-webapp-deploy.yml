@@ -1,0 +1,20 @@
+name: azure-webapp-deploy
+
+on:
+  push:
+    branches: [release/**]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - name: Log in to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Package app
+        run: zip -r app.zip ./app
+      - name: Deploy to WebApp
+        run: az webapp deployment source config-zip --resource-group meridian-prod-rg --name meridian-webapp --src app.zip

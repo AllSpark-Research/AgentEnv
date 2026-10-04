@@ -1,0 +1,38 @@
+{
+  "rubric": [
+    {
+      "id": "incident_window",
+      "description": "summary.json gives the true incident window derived from the logs (not the alert): first failing payment event 2025-04-18T13:52:42Z, last 2025-04-18T15:07:13Z, first successful capture after rollback 2025-04-18T15:08:05Z.",
+      "weight": 0.22,
+      "method": "deterministic"
+    },
+    {
+      "id": "failure_accounting",
+      "description": "Correct dedup/normalization of failure classes: 261 attempt-level failure events, 87 distinct permanently-failed requests / 87 gateway POST /checkout 502s, 71 distinct dead-lettered orders (excludes retry attempts, customer re-placements of the same order, self-recovering TimeoutErrors, and unrelated 500s).",
+      "weight": 0.26,
+      "method": "deterministic"
+    },
+    {
+      "id": "signature_and_tracing",
+      "description": "root_cause_signature names the PayVault 401/Unauthorized (PaymentGatewayError, auth_token_expired); window success rate is 0%; and the T-1042 request (req-bcc62b71 / ORD-77517) is correctly traced across services with the failure attributed to payment-worker (payment stage).",
+      "weight": 0.15,
+      "method": "deterministic"
+    },
+    {
+      "id": "timeline",
+      "description": "analysis/timeline.csv has exactly the required header, parseable ISO-8601 UTC timestamps, is chronologically ordered, and covers the trigger deploy (dep-20250418-c), rollback deploy (dep-20250418-d), alert INC-2781, incident start, and recovery.",
+      "weight": 0.12,
+      "method": "deterministic"
+    },
+    {
+      "id": "report_quality",
+      "description": "incident_report.md is an engineering postmortem following the runbook structure with an evidence-grounded causal chain, distractors ruled out, detection-gap analysis, quantified impact, and concrete action items.",
+      "weight": 0.25,
+      "method": "llm_judge",
+      "judge_instruction": "You are grading an incident postmortem (incident_report.md) for orderdesk checkout incident INC-2781 plus its companion analysis/summary.json. Ground truth: a config deploy dep-20250418-c (13:44Z) rotated PayVault API credentials to a token that was already expired/invalid (code auth_token_expired); payment-worker hot-reloaded the config at 13:51:58Z; from 13:52:42Z every payment attempt failed with 'PaymentGatewayError: 401 Unauthorized'; after 3 attempts each order was dead-lettered and the gateway returned 502 (87 failed requests, 71 distinct orders, 261 failure events); a rollback deploy dep-20250418-d (15:07:42Z) hot-reloaded at 15:08:01Z and the first successful capture was 15:08:05Z; the monitoring alert only fired at 14:12:03Z because it uses a rolling 10-minute success-rate window requiring two evaluations. Distractors that are NOT the cause: the 09:31 app deploy dep-20250418-a, a disk-usage warning at 12:03Z, a retry-queue-depth warning at 14:45Z, sporadic KeyError 'gift_wrap_code' 500s (a known pre-existing bug), occasional self-recovering TimeoutErrors, and fraud-detector 'score unavailable' warnings. Score 0 to 1: (a) states the true incident window (~13:52:42Z to ~15:07/15:08Z) with concrete log evidence rather than echoing the 14:12Z alert; (b) explains the full causal chain trigger->hot reload->expired token->401->retries exhausted->dead letters->502 and distinguishes trigger from root cause; (c) explicitly rules out at least two of the distractors with reasoning; (d) quantifies impact consistently with the logs (orders/requests/events, 0% success rate during window vs the 99.5% SLO target); (e) explains the detection gap; (f) lists concrete, ownable, relevant action items (e.g. credential validity verification on rotation, faster config effectivity/alerting, retry/dead-letter tooling); (g) follows the runbook template's section structure and is written for engineers (clear, precise, cites timestamps/request IDs/log evidence). Deduct for echoing alert times as the incident start, blaming provider outage without the token-expiry chain, blaming any distractor, missing sections, or hand-waved impact numbers that contradict summary.json. Full credit requires essentially all of (a)-(g); a report that only says 'payments failed with 401, fixed by rollback' without evidence or distractor analysis scores at most 0.4.",
+      "target_globs": ["incident_report.md", "analysis/summary.json"]
+    }
+  ],
+  "pass_threshold": 0.7,
+  "rubric_summary": "A passing solution reconstructs the true 13:52:42-15:07/15:08Z incident window from the logs (not the 14:12Z alert), correctly separates the 261 failure events / 87 failed requests / 71 dead-lettered orders from retries and background noise, traces the T-1042 request req-bcc62b71 to payment-worker, produces a conformant summary.json and chronologically ordered timeline.csv, and a runbook-structured postmortem that explains the expired-PayVault-token root cause with evidence, rules out distractors, and explains the late detection."
+}

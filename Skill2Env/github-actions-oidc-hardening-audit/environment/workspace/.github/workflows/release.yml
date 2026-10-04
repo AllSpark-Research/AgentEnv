@@ -1,0 +1,21 @@
+name: release
+
+on:
+  push:
+    tags: ['v*.*.*']
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@c25c4db6602bf1882cafb007f8d2e75d91c33366 # v4
+        with:
+          aws-region: us-east-1
+          role-to-assume: arn:aws:iam::444455556666:role/github-actions-prod-deploy
+      - name: Publish release artifacts
+        run: aws s3 cp ./build/ s3://meridian-releases/$(git describe --tags)/ --recursive

@@ -1,0 +1,46 @@
+{
+  "rubric": [
+    {
+      "id": "D1",
+      "description": "Migration applies cleanly to a database built from schema/prod_2024-08-01.sql + data/prod_extract_2024-08-01.sql, and the resulting schema exactly matches schema/target_v2.3.0.sql at the PRAGMA level: identical table set, column names/types/defaults/PKs, foreign keys (including order_items.book_id -> books), named indexes, and unique constraints — nothing extra (e.g. temp_dba_scratchpad), nothing missing.",
+      "weight": 0.3,
+      "method": "deterministic"
+    },
+    {
+      "id": "D2",
+      "description": "Data integrity: row counts and primary keys on customers/books/orders/order_items are preserved; every money value converts exactly (price_cents/total_cents/unit_price_cents == old REAL dollars * 100, exact for two-decimal values — float truncation loses cents on values like 64.99); PRAGMA foreign_key_check returns no violations; new defaulted columns (marketing_opt_in, discount_cents) are populated.",
+      "weight": 0.22,
+      "method": "deterministic"
+    },
+    {
+      "id": "D3",
+      "description": "ci/check_schema_drift.sh works from the repo root: it uses the vendored schema-diff CLI's check-drift command, exits 0 when given schema/target_v2.3.0.sql (no drift) and exits non-zero when given schema/prod_2024-08-01.sql (drift).",
+      "weight": 0.13,
+      "method": "deterministic"
+    },
+    {
+      "id": "D4",
+      "description": "reports/schema_diff_report.md accounts for every observed difference with correct handling: renames classified as renames (list_price/total/unit_price -> *_cents), added columns, new tables, removed leftover tables, index changes, the added order_items foreign key, conversion exactness risk, and destructive-change authorization (backup ticket).",
+      "weight": 0.15,
+      "method": "deterministic"
+    },
+    {
+      "id": "J1",
+      "description": "Quality of the schema diff report for the DBA review board.",
+      "weight": 0.1,
+      "method": "llm_judge",
+      "judge_instruction": "Score 0..1 the report reports/schema_diff_report.md as a release-review artifact for a DBA review board, against the workspace evidence (schema/prod_2024-08-01.sql, schema/target_v2.3.0.sql, docs/, ops/). Criteria: (1) Completeness and reconciliation — every actual difference between the two schemas is covered, including objects that exist only in production (temp_dba_scratchpad, idx_books_price_perf) and the table-level foreign key on order_items that naive diff tooling misses; nothing invented. (2) Correct classification — money columns treated as renames-with-unit-conversion (REAL dollars to INTEGER cents), not drop+add; added vs removed vs changed grouped sensibly. (3) Risk analysis a reviewer would act on: data conversion/precision hazard, SQLite table rebuilds and referential integrity, destructive changes tied to their authorizing tickets (OPS-1188, OPS-1201), and validation performed. (4) Clarity and organization for the audience. Deduct for: missing differences, mislabeled change types, unjustified destructive operations, or a report that merely dumps raw tooling JSON without synthesis. A report covering everything but organized differently than expected still scores well.",
+      "target_globs": ["reports/schema_diff_report.md"]
+    },
+    {
+      "id": "J2",
+      "description": "Craftsmanship of the migration script as a production release artifact.",
+      "weight": 0.1,
+      "method": "llm_judge",
+      "judge_instruction": "Score 0..1 the SQL file migrations/V2_3_0__release.sql as production release engineering, per docs/db_change_policy.md. Criteria: (1) It is complete handwritten SQL, not a generated scaffold — no TODOs, no stub CREATE TABLEs, no placeholder column types or fake index targets. (2) Sound operational structure: safe statement ordering for the required SQLite table rebuilds, foreign key PRAGMA handled around rebuilds (disabled during copy, re-enabled after, or integrity otherwise verified), transaction wrapping or an explicit reasoned note about it. (3) Comments that explain intent where a reviewer needs it, including citing the authorizing tickets (OPS-1188 for dropping legacy_promo_codes, OPS-1201 for the INC-2041 leftover objects) at destructive statements. (4) No silent data-destructive shortcuts (e.g. DROP+ADD of a retained column) and no unexplained divergence from the target schema. Do not require a specific style, comment density, or a particular rebuild idiom — any correct, reviewable approach scores well.",
+      "target_globs": ["migrations/V2_3_0__release.sql"]
+    }
+  ],
+  "pass_threshold": 0.7,
+  "rubric_summary": "A passing solution ships a runnable SQLite migration that transforms the drifted production schema+data into exactly the v2.3.0 target schema (table rebuilds with rename+exact dollar-to-cent conversion, new FK, new tables/indexes, authorized removals) with all data preserved, plus a complete reconciled diff report and a working check-drift CI gate."
+}

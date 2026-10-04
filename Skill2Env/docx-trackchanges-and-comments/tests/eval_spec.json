@@ -1,0 +1,44 @@
+{
+  "rubric": [
+    {
+      "id": "tracked_edits",
+      "description": "The four required edits exist as genuine tracked changes (w:ins/w:del) and the effective document text reflects exactly those changes in context: Net 45 -> Net 30 (§2.2), thirty (30) days -> sixty (60) days renewal notice (§3.2), $25,000 -> $102,000 liability cap (§4.1), State of New York -> State of Delaware (§5.1).",
+      "weight": 0.35,
+      "method": "deterministic"
+    },
+    {
+      "id": "revision_state",
+      "description": "Change tracking is enabled (w:trackChanges in settings.xml), every revision is authored by Priya Raman, and the §7.2 breach-notice clause ('seventy-two (72) hours') remains live text covered by NO deletion revision (manager explicitly deferred it; policy Rule 7 requires GC pre-approval).",
+      "weight": 0.15,
+      "method": "deterministic"
+    },
+    {
+      "id": "comment_infra",
+      "description": "Real Word comment infrastructure: word/comments.xml present with >=3 comments (unique ids, authored by Priya Raman), the part is declared in [Content_Types].xml, a comments relationship exists in word/_rels/document.xml.rels, and commentRangeStart/commentRangeEnd/commentReference ids in document.xml exactly match the comment ids.",
+      "weight": 0.15,
+      "method": "deterministic"
+    },
+    {
+      "id": "comment_substance",
+      "description": "The comments ask about the three required topics: moving breach notification to the 48-hour policy timeline, making confidentiality mutual, and committing to 99.9% uptime.",
+      "weight": 0.08,
+      "method": "deterministic"
+    },
+    {
+      "id": "preservation",
+      "description": "The output docx is a valid package openable by python-docx and no non-target contract language was lost (fee clause, SLA, headings, indemnity, and the full wording of the four edited sentences aside from the redlined spans).",
+      "weight": 0.10,
+      "method": "deterministic"
+    },
+    {
+      "id": "summary_memo",
+      "description": "redline_summary.md is an accurate, useful handoff memo to counsel tying every markup to its justifying authority.",
+      "weight": 0.17,
+      "method": "llm_judge",
+      "judge_instruction": "Score redline_summary.md from 0 to 1 against these explicit criteria (you may also consult review/manager_notes.md and policy/contract_review_policy.md in the workspace to check grounding): (1) It enumerates all FOUR tracked edits with correct before/after values: Net 45 -> Net 30 (§2.2), 30 days -> 60 days renewal notice (§3.2), $25,000 -> $102,000 (§4.1), State of New York -> State of Delaware (§5.1). (2) For the liability cap it shows or clearly states the derivation: $8,500/month (from §2.1) x 12 (policy Rule 5) = $102,000. (3) It lists all THREE comments with their rationale: §7.2 breach notice vs the 48-hour Rule 7 standard, §6 confidentiality being one-way vs mutual, §1.2 uptime 99.5% vs a possible 99.9% commitment with service credits. (4) It makes clear that §7.2 was deliberately NOT redlined (manager's instruction deferred the decision and/or Rule 7 requires GC pre-approval). (5) Each item is tied to the specific policy rule or numbered manager note that justifies it, and the memo is clear enough for counsel to send the redline without rechecking the sources. Deduct for: invented edits or comments the manager never requested, wrong values (especially any cap other than $102,000), claiming §7.2 was edited, missing authority citations, or generic boilerplate that would not let counsel verify the markup. Judge semantic content, not exact wording or ordering.",
+      "target_globs": ["redline_summary.md"]
+    }
+  ],
+  "pass_threshold": 0.7,
+  "rubric_summary": "A passing solution produces a valid Vendor_MSA_v3_redline.docx whose effective text differs from the vendor draft in exactly the four counsel-ordered changes implemented as real tracked revisions (trackChanges on, authored by Priya Raman), leaves the 72-hour breach clause unredlined, carries three properly-registered anchored comments on the breach/confidentiality/uptime issues, and ships a summary memo that ties every markup to its policy rule or manager note including the 12 x $8,500 = $102,000 cap derivation."
+}

@@ -1,0 +1,3 @@
+2025-04-18T09:31:12Z DEPLOY dep-20250418-a service=checkout-service version=2.41.0 actor=ci-bot status=success
+2025-04-18T13:44:00Z DEPLOY dep-20250418-c service=payment-worker type=config note="rotate PayVault API credentials (token provisioned 2025-04-17T18:00Z)" actor=platform-eng status=success
+2025-04-18T15:07:42Z DEPLOY dep-20250418-d service=payment-worker type=config note="ROLLBACK: restore previous PayVault API credentials" actor=oncall-sre status=success

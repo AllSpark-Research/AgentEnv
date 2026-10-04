@@ -1,0 +1,32 @@
+{
+  "rubric": [
+    {
+      "id": "deliverables_format_dimensions",
+      "description": "Every manifest-listed convertible asset is delivered in optimized/ as <stem>.<ext> with the correctly resolved format (photos/banners -> webp, press asset -> jpeg, sprite sheet and background tile -> png, logo -> webp or png because JPEG cannot hold the required transparency), longest edge within the manifest cap and never upscaled, and no fabricated output for the corrupt source.",
+      "weight": 0.30,
+      "method": "deterministic"
+    },
+    {
+      "id": "hard_constraints_size_metadata_alpha",
+      "description": "Hard launch constraints hold jointly: each delivered file is within its manifest byte cap, the total optimized/ folder is within the 1,050,000-byte policy budget, all delivered files are free of EXIF/GPS/XMP metadata, and the logo and icon sheet retain real transparency.",
+      "weight": 0.30,
+      "method": "deterministic"
+    },
+    {
+      "id": "report_fidelity",
+      "description": "conversion_report.json follows the policy schema: exactly the 10 manifest sources (9 converted, 1 failed), and every claimed number (source_bytes, output_bytes, width, height, resolved_format, summary totals) matches the actual files on disk.",
+      "weight": 0.25,
+      "method": "deterministic"
+    },
+    {
+      "id": "exception_documentation",
+      "description": "Quality of the report's reasoning: exceptions (the JPEG/transparency conflict on the logo, the truncated corrupt export) are detected, correctly resolved, and clearly documented for the auditing engineer.",
+      "weight": 0.15,
+      "method": "llm_judge",
+      "judge_instruction": "You are scoring the notes/exception documentation in conversion_report.json against the task: a design-team raw export in assets_raw/ was converted to a web-ready library, per rules in manifest/site_assets.csv and policy/media_standards.md. Read the report and (using the workspace files where useful) score 0-1: (a) The logo asset: the manifest asked for JPEG but required transparency, which JPEG cannot hold; the report must clearly document this deviation and the chosen compliant format (WebP or PNG). Full credit requires the tension to be explicitly explained, not silently resolved. (b) The corrupt asset (corrupt_export.png, a truncated/undecodable source) must be marked failed with a truthful technical reason and flagged for re-export, not omitted, fabricated, or silently replaced. (c) Notes for other assets should be factual and consistent with reality (e.g., quality reduction to meet byte caps, metadata stripping, CMYK normalization) and must not contain invented claims contradicted by the actual files. (d) The report is internally consistent and readable for an engineer auditing the conversion. Deductions: missing or vague explanations of the two key exceptions (heavy), hallucinated reasons (heavy), inaccurate claim that every asset converted (heavy), sloppy structure that obscures the failures (moderate). Award 0.9-1.0 only if both exceptions are explicitly and correctly explained and other notes are truthful.",
+      "target_globs": ["conversion_report.json"]
+    }
+  ],
+  "pass_threshold": 0.7,
+  "rubric_summary": "A passing solution ships the 9 convertible manifest assets in optimized/ with correct formats, dimension caps, byte caps, metadata stripping, and transparency preservation under the 1.05 MB budget, correctly documents the JPEG/alpha conflict and the corrupt export in an accurate conversion_report.json."
+}

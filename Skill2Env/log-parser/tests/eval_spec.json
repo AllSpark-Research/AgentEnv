@@ -1,0 +1,40 @@
+{
+  "rubric": [
+    {
+      "id": "R1",
+      "description": "findings.json attributes the incident correctly: primary_suspicious_ip is the real external attacker (not the internal monitor or scanner), attack_type is credential-stuffing-like, same_source_ip_in_web_and_ssh is true, and compromised_accounts are exactly the two breached usernames.",
+      "weight": 0.25,
+      "method": "deterministic"
+    },
+    {
+      "id": "R2",
+      "description": "Temporal fields are correct in UTC: incident_date_utc is 2024-11-18 and the attack_window_utc start/end within +/-120s of the attacker's first/last web request converted from +0800 (13:07:33Z / 15:14:52Z).",
+      "weight": 0.18,
+      "method": "deterministic"
+    },
+    {
+      "id": "R3",
+      "description": "All nine normative metrics in findings.json are exact per the template definitions (request/error/ssh/login counts with 401-vs-403 and ERROR-vs-WARN distinctions and attack-IP scope enforced).",
+      "weight": 0.27,
+      "method": "deterministic"
+    },
+    {
+      "id": "R4",
+      "description": "incident-report.md is a complete, evidence-grounded, UTC-consistent triage report covering every skeleton section and consistent with findings.json.",
+      "weight": 0.20,
+      "method": "llm_judge",
+      "judge_instruction": "You are grading report/incident-report.md (and its agreement with report/findings.json) from a real incident-triage task. Ground truth (compute nothing yourself): the incident is a credential-stuffing attack on 2024-11-18; the attacker is 185.220.101.47 with 341 web requests, active 13:07:33Z-15:14:52Z (logs recorded it as 21:07-23:14 UTC+8); it also caused 52 of 104 sshd 'Failed password' events on the bastion (first at 13:14:07Z); 380 POST /api/login attempts got 401; 4 /api/login logins from attack IPs succeeded (accounts m.hansen and priya.k); 169 web responses were 5xx, caused by database connection-pool exhaustion visible in the api-service ERROR lines ('connection pool exhausted'), which fired 'upstream 5xx rate exceeded' alerts; the api-service log contains exactly 41 ERROR-level entries and is natively UTC. 10.20.0.15 is the documented internal monitoring host (GET /healthz every 30s) and 91.121.87.10 is an unrelated vulnerability scanner. Score 0-1: 1.0 = every numbered skeleton section is filled (no TODOs), all times are UTC and correct, the timeline correlates at least the first web attack request, the ssh brute force onset, the 5xx-wave onset, the first breached account and the last attack request across the three sources, numbers match findings.json and the facts above, root cause ties the login flood to pool exhaustion and the 5xx wave, and the prose is decision-ready for a security lead. Subtract for: any section left empty/TODO (~0.15 each), times left in +0800 or inconsistent timezones (~0.25), attacker misidentified or monitor/scanner treated as the attacker (~0.4), numbers contradicting findings.json (~0.15), missing cross-log correlation in the timeline (~0.15), vague root cause. Tolerate wording, ordering within sections, and extra detail.",
+      "target_globs": ["report/incident-report.md", "report/findings.json"]
+    },
+    {
+      "id": "R5",
+      "description": "Recommended actions are concrete, proportionate, and grounded in the observed evidence (credential-stuffing controls, account remediation, and bastion hardening).",
+      "weight": 0.10,
+      "method": "llm_judge",
+      "judge_instruction": "Grade the Recommended actions section of report/incident-report.md (context in report/findings.json). The confirmed facts: credential stuffing from 185.220.101.47 plus a small pool (45.155.204.9/10, 103.75.190.28), 380 rejected logins, 4 successful logins from attack IPs breaching accounts m.hansen and priya.k, the same primary IP brute-forcing ssh on bastion-01 (and a second ssh brute-forcer 194.26.135.90), and internal monitor 10.20.0.15 dominating raw traffic. Score 0-1. Full credit requires: rate limiting / WAF or bot controls on /api/login (not banning the whole internet), blocking or deny-listing the identified attacker IPs (explicitly NOT 10.20.0.15), forced credential reset and session invalidation for m.hansen and priya.k plus MFA/lockout policy, and ssh hardening for the bastion (key-only auth, fail2ban/denylist, or restricted source ranges). Alerting/monitoring improvements tied to the observed signals are a plus. Generic security boilerplate without tie to the evidence caps at ~0.4; actions that would break legitimate traffic (e.g., blocking the monitor) or ignore the breached accounts cap at ~0.5; empty section scores 0.",
+      "target_globs": ["report/incident-report.md"]
+    }
+  ],
+  "pass_threshold": 0.7,
+  "rubric_summary": "A passing solution correctly identifies 185.220.101.47 as the credential-stuffing attacker (not the benign monitor), reports the exact per-definition metrics and UTC attack window in report/findings.json, and completes a coherent UTC-based triage report with grounded, proportionate recommendations."
+}

@@ -1,0 +1,12 @@
+{
+  "incident_id": "INC-2781",
+  "service": "orderdesk-checkout",
+  "alert_name": "CheckoutSuccessRateLow",
+  "severity": "page",
+  "fired_at": "2025-04-18T14:12:03Z",
+  "resolved_at": "2025-04-18T15:11:40Z",
+  "condition": "checkout success rate < 99.5% over rolling 10-minute window",
+  "source": "prometheus",
+  "notes": "Success rate is computed from api-gateway POST /checkout response codes. Window is rolling; alert requires 2 consecutive evaluations below threshold.",
+  "owner": "oncall-sre"
+}

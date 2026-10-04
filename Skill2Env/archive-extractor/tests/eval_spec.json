@@ -1,0 +1,46 @@
+{
+  "rubric": [
+    {
+      "id": "D1_csv_structure",
+      "description": "out/handoff_consolidated.csv exists with the required header (site,date,shipments,runtime_min,uptime_pct,source_archive), contains exactly 35 rows (one per site-day across PIT, CLE, STL, PHX, REN for 2024-06-17..2024-06-23), all dates within the week, and no row is attributed to a stale/deprecated archive (backup_snapshot, ren_export, snapshot, superseded...); Phoenix rows carry 'phx' provenance.",
+      "weight": 0.3,
+      "method": "deterministic"
+    },
+    {
+      "id": "D2_csv_values",
+      "description": "The consolidated CSV's 35 rows exactly reproduce the authoritative raw daily telemetry (shipments, runtime_min, uptime_pct per site-day) as recorded in the handoff archives - no omissions, no stale duplicate rows, no substitutions.",
+      "weight": 0.3,
+      "method": "deterministic"
+    },
+    {
+      "id": "D3_report_table",
+      "description": "out/weekly_service_report.md contains the service dashboard table (site, days_received, expected_days, weekly_shipments, avg_uptime_pct, sla_flag) with a TOTAL row; per-site weekly shipments match the consolidated CSV/ground truth (PIT 852, CLE 707, STL 647, PHX 998, REN 556, TOTAL 3760), coverage is 7/7 for every site, and sla_flag is OK for every site except CLE=FLAG (its 94.8% average is below the 95.0% target).",
+      "weight": 0.15,
+      "method": "deterministic"
+    },
+    {
+      "id": "D4_report_narrative",
+      "description": "Report narrative explains the method and sources: the weekly bundle used as system of record; phx_delta_export.zip diagnosed as a mislabeled gzip-compressed tarball and recovered (PHX included with the correct 7 daily files); backup_snapshot_2024-06-20.zip excluded as a stale pre-migration snapshot that would double-count PIT/CLE; ren_export_2024-06-23.zip excluded as deprecated and damaged, with REN data taken from the weekly bundle. Exclusions are grounded in MANIFEST.csv statuses and/or file inspection, with no fabricated claims.",
+      "weight": 0.15,
+      "method": "llm_judge",
+      "judge_instruction": "Read out/weekly_service_report.md (and out/handoff_consolidated.csv as supporting evidence). Score from 0 to 1 according to the following explicit criteria:\n(1) The report clearly states which archive(s) were used as the authoritative data source for the consolidation.\n(2) It explicitly identifies and correctly handles each of the three special artifacts: (a) phx_delta_export.zip - the file fails to open as ZIP and is diagnosed (magic bytes / tar inspection) as a mislabeled gzip-compressed tarball, and its 7 daily Phoenix files are recovered into the consolidation; (b) backup_snapshot_2024-06-20.zip - excluded and explained as a stale pre-migration snapshot that would double-count PIT/CLE rows; (c) ren_export_2024-06-23.zip - excluded and explained as deprecated (and damaged), with Reno data sourced from the weekly bundle instead.\n(3) Exclusions and recoveries are justified with evidence grounded in MANIFEST.csv statuses and/or actual file inspection - not asserted without basis.\n(4) No unsupported or fabricated claims about the data, file contents, or statuses.\nScore 0 if the report omits these explanations, misattributes the artifacts (e.g., claims Phoenix data is missing, includes the snapshot, or misstates a file's role), or fabricates evidence. Partial credit for correct but unexplained or partially incorrect handling. The best reports tie every decision to a specific file and a specific reason.",
+      "target_globs": [
+        "out/weekly_service_report.md",
+        "out/handoff_consolidated.csv"
+      ]
+    },
+    {
+      "id": "D5_report_quality",
+      "description": "Report is clear and useful for the ops director: states per-site coverage (7/7 days) and SLA status, correctly identifies CLE as the only site below the 95% uptime target (average 94.8% -> FLAG), gives an actionable recommendation, and is internally consistent with the consolidated CSV (weekly totals and the grand total of 3760 agree).",
+      "weight": 0.1,
+      "method": "llm_judge",
+      "judge_instruction": "Read out/weekly_service_report.md and out/handoff_consolidated.csv. Score from 0 to 1 according to the following explicit criteria:\n(1) The report is written for the intended audience (Ridgeline ops director): concise, structured sections (overview, method/sources, dashboard, findings, recommendation) and intelligible to a non-technical operations reader.\n(2) Coverage assessment: states that all five sites (PIT, CLE, STL, PHX, REN) have 7/7 expected days present in the consolidated data.\n(3) SLA assessment: correctly identifies CLE as the only site failing the SLA (average uptime 94.8%, below the 95.0% minimum) and marks it FLAG; the other sites are correctly reported as OK.\n(4) Numbers in the report (per-site weekly shipments and the grand total) agree with the numbers in the consolidated CSV; any discrepancy between report and CSV counts as a defect.\n(5) The recommendation is concrete and actionable (e.g., follow up with the CLE site/telemetry team, re-verify the Phoenix attachment handling, or add checks for upload integrity).\n(6) The report is internally consistent - no contradictions between sections, no typos in figures that change meaning.\nScore 0 for reports that omit the SLA assessment, give wrong totals, or misidentify which site failed the SLA. Strong reports tie the numbers to the consolidated dataset and make the recommendation follow from the findings.",
+      "target_globs": [
+        "out/weekly_service_report.md",
+        "out/handoff_consolidated.csv"
+      ]
+    }
+  ],
+  "pass_threshold": 0.7,
+  "rubric_summary": "A passing solution recovers and consolidates exactly the 35 authoritative site-day records from the nested archive handoff (handling the mislabeled Phoenix file, the stale backup snapshot, and the deprecated Reno export correctly), and delivers a consolidated CSV plus a service report whose dashboard table and SLA findings (CLE flagged for uptime, everything else OK) are consistent with the data and the manifest."
+}

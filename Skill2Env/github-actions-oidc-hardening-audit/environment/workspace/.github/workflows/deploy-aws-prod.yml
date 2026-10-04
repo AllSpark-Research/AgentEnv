@@ -1,0 +1,28 @@
+name: deploy-aws-prod
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  AWS_REGION: us-east-1
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-region: us-east-1
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      - name: Build site
+        run: npm ci && npm run build
+      - name: Publish assets
+        run: aws s3 sync ./dist s3://meridian-prod-web --delete
+      - name: Invalidate CDN
+        run: aws cloudfront create-invalidation --distribution-id E3M1D14NPR0D --paths "/*"

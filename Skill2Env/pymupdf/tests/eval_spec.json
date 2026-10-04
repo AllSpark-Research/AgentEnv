@@ -1,0 +1,38 @@
+{
+  "rubric": [
+    {
+      "id": "changed_pages",
+      "description": "deliverables/preflight_report.json reports the complete set of visually changed pages between the approved proof (catalog_v2.pdf) and the final catalog (catalog_v3.pdf): exactly pages 3, 5, 6, 8 (1-based). Only rendered-image comparison catches the photo swap on page 5 and the Letter-to-A4 page 8; a text diff yields only [3,6]. Partial credit: -0.25 per missed actual change, -0.15 per falsely reported page.",
+      "weight": 0.25,
+      "method": "deterministic"
+    },
+    {
+      "id": "preflight_page_geometry",
+      "description": "Report covers the release candidate: file refers to catalog_v3, page_count is 8, per-page size check flags only page 8 (A4 595.28x841.89pt) against the 612x792pt +/-1pt trim rule, reported page dimensions are accurate, and embedded_image_count is 6 (unique raster images in v3).",
+      "weight": 0.2,
+      "method": "deterministic"
+    },
+    {
+      "id": "undersized_images",
+      "description": "undersized_images lists exactly the three raster placements below the spec minimum of 300 effective DPI, with correct page (4, 5, 6), native pixels (600x450, 640x480, 1200x900), and placed-size effective DPI (~150.0, ~213.3, ~200.0, tolerance +/-2; worst axis). Requires computing effective DPI from the placed rectangle, not just native dimensions.",
+      "weight": 0.25,
+      "method": "deterministic"
+    },
+    {
+      "id": "previews",
+      "description": "deliverables/previews/ contains page-3.png, page-5.png, page-6.png and page-8.png: loadable PNGs at 150 DPI (1275x1650 px for Letter pages, ~1241x1754 px for the A4 page 8) whose rendered content matches the corresponding catalog_v3.pdf page (rendered from the final catalog, correct 1-based page mapping).",
+      "weight": 0.15,
+      "method": "deterministic"
+    },
+    {
+      "id": "review_notes",
+      "description": "deliverables/review_notes.md accurately summarizes for the client's account manager what changed between proof and final and which spec failures block plating, with supporting numbers and clear next steps, using only workspace-grounded facts.",
+      "weight": 0.15,
+      "method": "llm_judge",
+      "judge_instruction": "Score 0 to 1 for the file deliverables/review_notes.md in the workspace. Criteria. (a) Correctly identifies the changed pages with 1-based numbers: page 3 price change, page 5 replaced Trailhead Backpack product photo (no text change), page 6 shipping-time text change, page 8 changed page size; missing the photo swap or the page-8 resize is a major failure. (~0.35) (b) Lists every blocking preflight failure with page numbers and supporting numbers: page 8 trim size (A4 ~595x842 pt vs required US Letter 612x792 pt) and three raster images below 300 effective DPI (~150 on page 4, ~213 on page 5, ~200 on page 6). (~0.3) (c) Grounded and factual: no invented page numbers, failures, DPI values, or unsupported claims; the checked file must be the final catalog, not the approved proof or the archived older catalog. (~0.2) (d) Actionable for an account manager: states what the client must fix or approve before plating; concise and clear. (~0.15) Treat organization and wording as free; penalize only wrong or invented facts, missing change types, or missing blockers.",
+      "target_globs": ["deliverables/review_notes.md"]
+    }
+  ],
+  "pass_threshold": 0.7,
+  "rubric_summary": "A passing solution correctly identifies all four visually changed pages (including the image-only swap and the A4 page resize), flags page 8's trim-size violation and the three under-300-DPI images with correct effective-DPI values in a valid preflight_report.json, produces correct 150-DPI preview renders of the changed pages from the final catalog, and summarizes the findings accurately for the client."
+}

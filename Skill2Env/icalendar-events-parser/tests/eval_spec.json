@@ -1,0 +1,32 @@
+{
+  "rubric": [
+    {
+      "id": "sessions_csv",
+      "description": "billing/sessions.csv lists exactly the 14 billable March 2026 lesson sessions with correct student, date, Europe/Lisbon HH:MM start/end and minutes; no extra rows (e.g. no Paulo Ferreira sessions, no all-day recital, no personal-calendar entries) and no missing ones.",
+      "weight": 0.35,
+      "method": "deterministic"
+    },
+    {
+      "id": "billing_aggregates",
+      "description": "billing/march_2026.json per-student sessions/minutes/amount_eur and overall totals match the values forced by the calendar exports and billing_policy.md (Ana Costa 4/240/120.00; Anabela Sousa 4/240/128.00; Bruno Pereira 3/180/84.00; Carla Ribeiro 2/120/70.00; Miguel Santos 1/90/20.00; Paulo Ferreira 0/0/0.00; total_sessions 14; total_amount_eur 422.00).",
+      "weight": 0.35,
+      "method": "deterministic"
+    },
+    {
+      "id": "schema_and_coverage",
+      "description": "billing/march_2026.json is valid JSON matching the prompt's schema: billing_period start/end/time_zone, currency EUR, and a students list containing exactly the six roster names (no invented or missing entries) with the three required numeric fields each.",
+      "weight": 0.1,
+      "method": "deterministic"
+    },
+    {
+      "id": "billing_notes",
+      "description": "billing/billing_notes.md correctly and completely explains the special-case handling so Sofia can justify the invoices.",
+      "weight": 0.2,
+      "method": "llm_judge",
+      "judge_instruction": "Score from 0 to 1. The note is written for the studio owner to accompany March 2026 invoices. Evaluate against the workspace evidence (lessons_calendar.ics, personal_calendar.ics, billing_policy.md, roster.csv, messages.md), not against any specific wording.\n\nRequired substance (roughly equal weight each):\n1. School-break week (9–15 March): the week's recurring occurrences (Ana Mon 9th, Anabela Tue 10th, Bruno Wed 11th, Carla Thu 12th) were removed from the calendar and are not billed.\n2. Anabela Sousa's lesson was moved from Tue 17 March to Fri 20 March 18:00 and is billed once at the actual time.\n3. Carla Ribeiro's single occurrence on Thu 19 March was cancelled and is not billed.\n4. Paulo Ferreira's entire drums series was cancelled, so he is billed zero for March even though his weekly series still expands into five apparent lessons (the note should show the author noticed this rather than silently including or silently dropping him).\n5. Miguel Santos' trial on Sat 14 March was held in New York local time (10:00–11:30, i.e. 14:00–15:30 Lisbon) and is billed at the flat €20 trial fee, not hourly.\n6. Exclusions are explained: the all-day Spring Recital (even though it names students) and everything on the personal calendar (e.g. piano tuning, buying strings) are not billable lessons.\n\nAward high scores only if the treatments described are factually correct (dates, counts, amounts consistent with the correct billing: 14 sessions, €422.00 total). Deduct substantially for factually wrong claims (e.g. billing Paulo, wrong moved date, trial billed hourly), for omitting two or more of the six cases, or for prose that blames/contradicts the workspace evidence. Clear, concise, client-defensible wording merits the top of the band; a bare list of unexplained numbers does not count as an explanation.",
+      "target_globs": ["billing/billing_notes.md"]
+    }
+  ],
+  "pass_threshold": 0.7,
+  "rubric_summary": "A passing solution expands the March 2026 (Europe/Lisbon) teaching calendar correctly — EXDATE break-week removals, one moved and one cancelled occurrence, a wholly cancelled series excluded despite appearing in the expansion, trial at flat fee, decoys filtered — producing 14 exact session rows, €422.00 across the six roster students in the required JSON schema, and a defensible explanatory note."
+}

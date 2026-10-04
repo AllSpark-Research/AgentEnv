@@ -1,0 +1,38 @@
+{
+  "rubric": [
+    {
+      "id": "docs_tree_link_integrity",
+      "description": "After the solve, every internal link in aurorakit-docs/ (inline AND reference-style definitions) resolves to an existing file, and all original documentation files are still present.",
+      "weight": 0.30,
+      "method": "deterministic"
+    },
+    {
+      "id": "fix_target_correctness",
+      "description": "Each of the 12 defective references (9 linter-flagged broken links, 2 reference-style broken links invisible to the linter, 1 resolvable-but-wrong token link) was redirected in place to exactly the correct v1.0 target per the migration manifest / triage notes — not to an arbitrary existing file, not stubbed out, not deleted.",
+      "weight": 0.28,
+      "method": "deterministic"
+    },
+    {
+      "id": "audit_json",
+      "description": "aurorakit-docs/link-audit.json matches the required schema: baseline from the pristine linter run (files_scanned=20, broken_links_found=9), additional_broken_references=3, and a fixes array whose entries (file/from/to, repo-relative) cover all 12 corrections.",
+      "weight": 0.14,
+      "method": "deterministic"
+    },
+    {
+      "id": "preservation",
+      "description": "Non-target state preserved: the 11 markdown files and the PNG that contained no link defect are byte-identical to their initial state.",
+      "weight": 0.08,
+      "method": "deterministic"
+    },
+    {
+      "id": "audit_report_quality",
+      "description": "aurorakit-docs/link-audit.md is a faithful, useful human-readable audit of the whole operation.",
+      "weight": 0.20,
+      "method": "llm_judge",
+      "judge_instruction": "You are evaluating aurorakit-docs/link-audit.md against the repository state. Ground truth: the baseline linter run reported 20 files scanned and 9 broken links; 12 defective references were fixed in total, because the automated baseline missed 3: two REFERENCE-STYLE link definitions (CHANGELOG.md: docs/migration-guide.md -> docs/migration/moves-1.0.md; docs/guides/configuration.md: ./config-schema.md -> ../api/config-schema.md) and one link that RESOLVED but pointed to the wrong page (docs/api/authentication.md's 'token lifetimes' link pointed at cli-tokens.md instead of auth-tokens.md, per reports/triage-notes.md ticket T-4824). Score 0-1: (a) 0.25 — states the baseline and how it was obtained (the linter tool run on the docs tree before edits), with numbers consistent with the fixed tree; (b) 0.30 — enumerates the fixes with file, old target, new target, and a reason grounded in docs/migration/moves-1.0.md or the triage notes (the case-sensitivity fix for docs/README.md -> docs/api/authentication.md counts as manifest/case-convention grounded); (c) 0.30 — explicitly discusses the automated linter's blind spots (reference-style link definitions and resolvable-but-wrong-target links) and describes an independent verification step (e.g., grep/second scan/manual sweep of manifest moves); (d) 0.15 — internally consistent (fix count reconciles 9 baseline + 3 additional; no claimed fix that the repository state contradicts). Award partial credit proportionally. Do not penalize formatting or heading choices.",
+      "target_globs": ["aurorakit-docs/link-audit.md"]
+    }
+  ],
+  "pass_threshold": 0.7,
+  "rubric_summary": "A passing solution repairs all 12 defective internal links in aurorakit-docs/ to their uniquely correct v1.0 targets (including the 3 the linter cannot see), leaves untouched files byte-identical, and ships both audit deliverables with the true pristine baseline (20 files / 9 broken links) reconciled against 3 additional manually-found defects."
+}

@@ -1,0 +1,34 @@
+{
+  "rubric": [
+    {
+      "id": "clean_csv_correctness",
+      "description": "clean/orders_clean.csv exactly implements the authoritative schema rules: 9 columns in order, 50 unique deduped rows sorted by order_id, region-aware ISO dates, locale-aware currency parsing converted to USD at the pinned snapshot rates with half-up 2dp, lowercase emails/statuses, null-token handling, and the read-only raw export left intact.",
+      "weight": 0.4,
+      "method": "deterministic"
+    },
+    {
+      "id": "rejects_csv_correctness",
+      "description": "clean/rejects.csv contains one row per truly invalid source row (exactly the 8 forced rejects: ORD-9001..ORD-9008 at data rows 1, 9, 10, 22, 32, 42, 45, 54) with columns source_row, order_id, reason and a non-empty reason for each.",
+      "weight": 0.15,
+      "method": "deterministic"
+    },
+    {
+      "id": "profile_report_quality",
+      "description": "reports/profile_report.md is an accurate, grounded profile of the raw export with a quality scorecard and no fabricated metrics.",
+      "weight": 0.2,
+      "method": "llm_judge",
+      "judge_instruction": "You are evaluating reports/profile_report.md for a data-cleaning task. Ground truth about the raw file data/orders_export.csv (a merged ShopFlow order export from US/EU/UK tenants): 62 data rows; messy headers with stray spaces/mixed case (e.g. ' Order ID ', 'Customer E-mail', 'SKU#'); 4 order_ids appear twice due to re-exports (ORD-1002, ORD-1005, ORD-1010, ORD-1015); three date conventions (ISO, US MM/DD/YYYY, EU/UK DD/MM/YYYY) plus textual dates like 12-Apr-2024; three currencies (USD '$' or bare, EUR '€' with continental format like €1.096,00, GBP '£'); nulls spelled 5 ways ('', '-', 'N/A', 'null', 'NONE'); exactly 8 rule-violating rows (bad/non-numeric quantity, zero/negative quantity, malformed or missing email, SKU not in catalog, missing price on a paid order, invalid calendar date 2024-02-31). Score 0-1 by these criteria: (a) STRUCTURE ~20%: correct row count and column inventory including the messy-header observation; (b) ISSUE COVERAGE ~45%: identifies the genuinely present issue families — duplicates, mixed regional date formats (ideally noting the US-vs-EU/UK slash ambiguity and that the Region column resolves it), multiple currencies/locale number formats, the multiple null-token spellings (ideally noting a naive empty-string null count underreports missing values), and invalid/out-of-domain values (quantity, email, SKU, price, date); (c) SCORECARD ~15%: includes a quality scorecard or remediation checklist with per-dimension assessment; (d) HONESTY/ACTIONABILITY ~20%: numbers claimed match the data, no invented metrics or unsupported claims, findings are actionable. Deduct heavily for fabricated counts, hedged-but-wrong claims, or a generic data-quality essay not tied to this file. A strong report may use the workspace's profiling script or its own code; either is acceptable if the findings are correct and grounded.",
+      "target_globs": ["reports/profile_report.md"]
+    },
+    {
+      "id": "cleanup_plan_quality",
+      "description": "reports/cleanup_plan.md is a reproducible, auditable step-by-step plan that is consistent with the CSVs actually produced and documents irreversible operations and assumptions.",
+      "weight": 0.25,
+      "method": "llm_judge",
+      "judge_instruction": "You are evaluating reports/cleanup_plan.md, the reproducible cleanup plan for a CSV cleaning task. Correct outcome this plan must produce: 62 raw rows -> 50 clean rows in clean/orders_clean.csv (deduped latest-UPDATED_AT-wins for ORD-1002/1005/1010/1015, sorted by order_id) + 8 rejects in clean/rejects.csv (ORD-9001..ORD-9008). Key rules: Region-dispatched slash-date parsing (US=MM/DD/YYYY, EU/UK=DD/MM/YYYY), EUR continental number format, pinned FX snapshot EUR 1.08 / GBP 1.27 with half-up 2dp rounding, null tokens ''/'-'/'N/A'/'null'/'NONE', SKU membership in docs/product_catalog.csv, email format, quantity >= 1. Score 0-1 by these criteria: (a) REPRODUCIBILITY ~35%: ordered, concrete steps a colleague or script could follow end-to-end (profiling, header mapping, normalization, validation, dedupe, output writing), referencing the actual workspace files/artifacts rather than vague advice; (b) IRREVERSIBLE-OPS DOCUMENTATION ~25%: explicitly documents what is dropped or overwritten — the 4 stale re-export copies (by order id), the 8 rejected source rows (with reasons), currency conversions and the exact rates used — so nothing disappears silently; (c) CONSISTENCY ~20%: the plan's claims match the deliverables that exist in the workspace (row counts, dedupe outcome, rejects); contradictions or claims about files that do not exist are a major deduction; (d) ASSUMPTIONS & COVERAGE ~20%: states assumptions/decisions (e.g. bare prices are USD, date disambiguation source, rounding rule) and spans the checklist dimensions (headers, nulls, duplicates, dates, currencies, referential integrity, allowed domains). Deduct for generic boilerplate unrelated to this dataset, missing documentation of dropped rows, or inconsistency with the produced CSVs.",
+      "target_globs": ["reports/cleanup_plan.md", "clean/orders_clean.csv", "clean/rejects.csv"]
+    }
+  ],
+  "pass_threshold": 0.7,
+  "rubric_summary": "A passing solution cleans the 62-row ShopFlow export into an exactly-correct 50-row schema-conformant orders_clean.csv (region-aware dates, pinned-rate USD conversion, dedupe-by-recency, normalization), quarantines exactly the 8 invalid rows into rejects.csv with reasons, and backs the outputs with an accurate grounded profile report plus a reproducible cleanup plan that documents irreversible operations."
+}

@@ -1,0 +1,43 @@
+{
+  "rubric": [
+    {
+      "id": "D_oidc_compliance",
+      "description": "All six non-compliant live workflows genuinely remediated: no static cloud credentials of any kind remain anywhere in them (including patterns the packaged auditor cannot see, like the raw GCP service-account key pipeline in data-export-gcp.yml and the AZURE_CREDENTIALS creds input), every cloud auth action pinned to the exact registry SHA, and the environment-correct OIDC identities wired in (prod/staging/backup AWS role ARNs, the meridian-ml-prod vs meridian-data-prod WIF providers + service accounts, the azure-prod client/tenant/subscription IDs).",
+      "weight": 0.4,
+      "method": "deterministic"
+    },
+    {
+      "id": "D_permission_scoping",
+      "description": "Every job that performs cloud authentication declares id-token: write in its OWN job-level permissions block (workflow-level alone is not sufficient - deploy-aws-staging.yml's job-level override must be recognized and fixed), across all live workflows.",
+      "weight": 0.15,
+      "method": "deterministic"
+    },
+    {
+      "id": "D_audit_evidence",
+      "description": "audit/before.json captures the honest pre-change baseline (8 scanned / 5 flagged / 2 critical / 1 warn with default thresholds), audit/after.json shows a fully clean result (8 scanned / 0 flagged), and an independent re-run of the packaged auditor on the final workspace confirms zero flagged workflows.",
+      "weight": 0.1,
+      "method": "deterministic"
+    },
+    {
+      "id": "D_scope_preservation",
+      "description": "Out-of-scope state untouched (ci.yml, archived/2023/legacy-aws-deploy.yml and security/action-pins.yml byte-identical), the compliant release.yml exemplar intact, and original functional behavior (build/deploy/export/backup commands) preserved in every edited workflow.",
+      "weight": 0.1,
+      "method": "deterministic"
+    },
+    {
+      "id": "J_report_quality",
+      "description": "REMEDIATION_REPORT.md is faithful to the actual workspace state, covers all six remediated workflows, and explicitly surfaces the risky patterns the audit tooling missed or under-scored.",
+      "weight": 0.25,
+      "method": "llm_judge",
+      "judge_instruction": "Score REMEDIATION_REPORT.md from 0 to 1 for a security-review audience. Evaluate against the workspace itself (the workflows under .github/workflows/, security/identity-standard.md, docs/oidc-identity-map.md, and audit/before.json + audit/after.json), not against any one expected text. Award full credit only if ALL of the following hold; deduct proportionally for misses: (1) Per-workflow accuracy: findings and fixes for each of the six remediated workflows are factually correct (static AWS keys + floating @v2 in deploy-aws-prod; GCP key JSON -> Workload Identity Federation in ml-training-gcp; azure creds secret -> OIDC client/tenant/subscription login; SHA pinning of the previously compliant-but-tag-pinned nightly-backup; the deploy-aws-staging subtlety - the job-level permissions block overrode the workflow-level id-token: write so OIDC could never mint a token; data-export-gcp's raw service-account key + gcloud key-file activation replaced by a WIF auth step). (2) Tooling blind spots: the report explicitly identifies which findings the packaged audit missed or under-scored (it never scans workflows without an auth action, its secret-name list does not include AZURE_CREDENTIALS, its whole-file permission search masks the staging override, and floating major-tag refs score below the warn threshold). (3) Decommission list: the obsolete repo secrets (at minimum AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, GCP_SERVICE_ACCOUNT_KEY, AZURE_CREDENTIALS) are listed for deletion. (4) Evidence: baseline vs final audit numbers consistent with the actual audit JSONs (8/5/2/1 -> 8/0/0/0) are cited. (5) Communication: concise, structured, no invented findings, no claims contradicted by the actual final workflow state (a report claiming fixes that the YAML files do not contain caps the score at 0.4).",
+      "target_globs": [
+        "REMEDIATION_REPORT.md",
+        "audit/before.json",
+        "audit/after.json",
+        ".github/workflows/*.yml"
+      ]
+    }
+  ],
+  "pass_threshold": 0.7,
+  "rubric_summary": "A passing solution remediates all six non-compliant workflows into genuine OIDC compliance (no static credentials anywhere, registry SHA pins, environment-correct identities, job-level id-token: write including the staging override trap), preserves out-of-scope files and existing behavior byte-for-byte, and produces honest before/after audit JSONs plus an accurate report that calls out what the audit tool itself missed."
+}

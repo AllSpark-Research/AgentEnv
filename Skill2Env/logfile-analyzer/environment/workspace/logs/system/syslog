@@ -1,0 +1,54 @@
+Nov 14 00:00:01 web-01 CRON[9912]: (root) CMD (/usr/local/bin/disk-check.sh)
+Nov 14 00:00:03 web-01 disk-check[9913]: WARNING: /var/log usage at 82% (threshold 80%)
+Nov 14 13:58:04 web-01 systemd[1]: Stopping Checkout API Service...
+Nov 14 13:58:06 web-01 systemd[1]: Started Checkout API Service (v2.14.0).
+Nov 14 14:00:01 web-01 CRON[9912]: (root) CMD (/usr/local/bin/disk-check.sh)
+Nov 14 14:00:03 web-01 disk-check[9913]: WARNING: /var/log usage at 82% (threshold 80%)
+Nov 14 14:09:50 web-01 systemd[1]: checkout-api.service: Main process exited, code=exited, status=1/FAILURE
+Nov 14 14:09:54 web-01 systemd[1]: checkout-api.service: Failed with result 'exit-code'.
+Nov 14 14:09:56 web-01 systemd[1]: checkout-api.service: Scheduled restart job, restart counter is at 9.
+Nov 14 14:09:58 web-01 systemd[1]: Started Checkout API Service.
+Nov 14 14:17:50 web-01 systemd[1]: checkout-api.service: Main process exited, code=exited, status=1/FAILURE
+Nov 14 14:17:54 web-01 systemd[1]: checkout-api.service: Failed with result 'exit-code'.
+Nov 14 14:17:56 web-01 systemd[1]: checkout-api.service: Scheduled restart job, restart counter is at 3.
+Nov 14 14:17:58 web-01 systemd[1]: Started Checkout API Service.
+Nov 14 14:25:50 web-01 systemd[1]: checkout-api.service: Main process exited, code=exited, status=1/FAILURE
+Nov 14 14:25:54 web-01 systemd[1]: checkout-api.service: Failed with result 'exit-code'.
+Nov 14 14:25:56 web-01 systemd[1]: checkout-api.service: Scheduled restart job, restart counter is at 3.
+Nov 14 14:25:58 web-01 systemd[1]: Started Checkout API Service.
+Nov 14 14:32:50 web-01 systemd[1]: checkout-api.service: Main process exited, code=exited, status=1/FAILURE
+Nov 14 14:32:54 web-01 systemd[1]: checkout-api.service: Failed with result 'exit-code'.
+Nov 14 14:32:56 web-01 systemd[1]: checkout-api.service: Scheduled restart job, restart counter is at 6.
+Nov 14 14:32:58 web-01 systemd[1]: Started Checkout API Service.
+Nov 14 14:41:50 web-01 systemd[1]: checkout-api.service: Main process exited, code=exited, status=1/FAILURE
+Nov 14 14:41:54 web-01 systemd[1]: checkout-api.service: Failed with result 'exit-code'.
+Nov 14 14:41:56 web-01 systemd[1]: checkout-api.service: Scheduled restart job, restart counter is at 9.
+Nov 14 14:41:58 web-01 systemd[1]: Started Checkout API Service.
+Nov 14 14:50:50 web-01 systemd[1]: checkout-api.service: Main process exited, code=exited, status=1/FAILURE
+Nov 14 14:50:54 web-01 systemd[1]: checkout-api.service: Failed with result 'exit-code'.
+Nov 14 14:50:56 web-01 systemd[1]: checkout-api.service: Scheduled restart job, restart counter is at 5.
+Nov 14 14:50:58 web-01 systemd[1]: Started Checkout API Service.
+Nov 14 14:58:50 web-01 systemd[1]: checkout-api.service: Main process exited, code=exited, status=1/FAILURE
+Nov 14 14:58:54 web-01 systemd[1]: checkout-api.service: Failed with result 'exit-code'.
+Nov 14 14:58:56 web-01 systemd[1]: checkout-api.service: Scheduled restart job, restart counter is at 6.
+Nov 14 14:58:58 web-01 systemd[1]: Started Checkout API Service.
+Nov 14 15:00:01 web-01 CRON[9912]: (root) CMD (/usr/local/bin/disk-check.sh)
+Nov 14 15:00:03 web-01 disk-check[9913]: WARNING: /var/log usage at 82% (threshold 80%)
+Nov 14 15:06:50 web-01 systemd[1]: checkout-api.service: Main process exited, code=exited, status=1/FAILURE
+Nov 14 15:06:54 web-01 systemd[1]: checkout-api.service: Failed with result 'exit-code'.
+Nov 14 15:06:56 web-01 systemd[1]: checkout-api.service: Scheduled restart job, restart counter is at 4.
+Nov 14 15:06:58 web-01 systemd[1]: Started Checkout API Service.
+Nov 14 15:15:50 web-01 systemd[1]: checkout-api.service: Main process exited, code=exited, status=1/FAILURE
+Nov 14 15:15:54 web-01 systemd[1]: checkout-api.service: Failed with result 'exit-code'.
+Nov 14 15:15:56 web-01 systemd[1]: checkout-api.service: Scheduled restart job, restart counter is at 6.
+Nov 14 15:15:58 web-01 systemd[1]: Started Checkout API Service.
+Nov 14 15:22:12 web-01 systemd[1]: Stopping Checkout API Service...
+Nov 14 15:22:15 web-01 systemd[1]: Started Checkout API Service (v2.13.2, rollback).
+Nov 14 15:23:50 web-01 systemd[1]: checkout-api.service: Main process exited, code=exited, status=1/FAILURE
+Nov 14 15:23:54 web-01 systemd[1]: checkout-api.service: Failed with result 'exit-code'.
+Nov 14 15:23:56 web-01 systemd[1]: checkout-api.service: Scheduled restart job, restart counter is at 7.
+Nov 14 15:23:58 web-01 systemd[1]: Started Checkout API Service.
+Nov 14 15:31:50 web-01 systemd[1]: checkout-api.service: Main process exited, code=exited, status=1/FAILURE
+Nov 14 15:31:54 web-01 systemd[1]: checkout-api.service: Failed with result 'exit-code'.
+Nov 14 15:31:56 web-01 systemd[1]: checkout-api.service: Scheduled restart job, restart counter is at 7.
+Nov 14 15:31:58 web-01 systemd[1]: Started Checkout API Service.

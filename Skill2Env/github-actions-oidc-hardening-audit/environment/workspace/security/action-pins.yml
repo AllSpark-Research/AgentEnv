@@ -1,0 +1,20 @@
+# Approved pins for cloud authentication actions (supply-chain review SC-2024-11).
+# Upgrade each auth action to the version listed here and pin by full commit SHA.
+# The OIDC inputs documented in security/identity-standard.md are unchanged in
+# these versions.
+pins:
+  - action: aws-actions/configure-aws-credentials
+    version: v4
+    sha: c25c4db6602bf1882cafb007f8d2e75d91c33366
+  - action: google-github-actions/auth
+    version: v2
+    sha: 20f0fd44ad1e75bbbb028ff440a98bd56452bb45
+  - action: azure/login
+    version: v2
+    sha: 6ec18d2562efdc25fcc543b11dd71a1ba7157be5
+
+usage: |
+  Replace e.g.
+      uses: aws-actions/configure-aws-credentials@v2
+  with
+      uses: aws-actions/configure-aws-credentials@c25c4db6602bf1882cafb007f8d2e75d91c33366 # v4

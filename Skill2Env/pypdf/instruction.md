@@ -1,0 +1,5 @@
+You can use the skill documented at `_skill_ref/SKILL.md` (and its scripts under `_skill_ref/`) to help complete this task.
+
+Focus on completing the user's request. Avoid additional work that goes beyond what the user asked for, unless it is necessary to ensure the correctness of the result.
+
+I'm getting our audit response out the door and need your help assembling it. Crowe & Pelley LLP sent us a request letter — it's at auditor_request/crowe_pelley_request.pdf — for Matter HLG-2024-118. They want a single assembled evidence packet built from our records. The source documents are the PDFs in records/, and matter_file/ holds the registers that tell you which file belongs to which party/contract/policy, the CSV tab-index template the auditors require, and a short README. Please follow the request letter exactly and produce: packet/audit_packet.pdf (the assembled packet), packet/packet_index.csv (the tab index), and packet/cover_memo.md (the cover memo described at the end of the letter). Page selection and order matter; everything sent to the auditors must be upright; and be careful to use the correct version of each document.

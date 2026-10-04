@@ -1,0 +1,30 @@
+{
+  "rubric": [
+    {
+      "id": "db_price_repairs",
+      "description": "shop.db prices repaired per policy: all cents-denominated products normalized to USD except correction-overridden SKU-1005 (39.99, correction precedence wins); corrections.csv applied exactly; all price_unit flags 'usd'; non-target prices and product names preserved.",
+      "weight": 0.3,
+      "method": "deterministic"
+    },
+    {
+      "id": "db_stock_status_preservation",
+      "description": "shop.db stock clamps (negative stock -> 0 for exactly the 3 affected SKUs), [DISCONTINUED] deactivations (active=0 for exactly the 3 tagged SKUs), orders ledger completely untouched (40 rows, identical contents), and products table schema (incl. CHECK constraint) preserved.",
+      "weight": 0.25,
+      "method": "deterministic"
+    },
+    {
+      "id": "audit_report",
+      "description": "audit_report.json at the path from .env with the required keys; counts and sorted SKU lists exactly match the repaired DB for all four fix classes (corrected SKUs reported under corrections_applied only); inventory_value_usd = 16225.19 (post-repair, active products only) and consistent with the actual database.",
+      "weight": 0.3,
+      "method": "deterministic"
+    },
+    {
+      "id": "workspace_hygiene",
+      "description": "Repo hygiene per the handoff/skill rules: no temp_* one-off scripts remain anywhere in the workspace and .gitignore contains an entry covering temp_* files.",
+      "weight": 0.15,
+      "method": "deterministic"
+    }
+  ],
+  "pass_threshold": 0.7,
+  "rubric_summary": "A passing solution repairs shop.db in place with correct rule precedence (corrections beat cents-normalization), preserves all non-target state including the orders ledger and schema, and emits an audit_report.json whose counts, SKU sets, and inventory value agree exactly with the repaired database, while leaving the workspace clean of temp_ scripts with .gitignore coverage."
+}

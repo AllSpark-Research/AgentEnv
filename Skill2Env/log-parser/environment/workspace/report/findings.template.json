@@ -1,0 +1,41 @@
+{
+  "_comment": "Post-incident findings record. Copy this file to findings.json (same directory), replace every placeholder, and DELETE the _comment keys. The Definitions below are normative: a metric means exactly what its definition says, nothing broader. All timestamps must be UTC ISO-8601 (see infra/logging-standards.md for source-log timezones).",
+
+  "incident_date_utc": "<YYYY-MM-DD; the calendar date, in UTC, on which the attack burst occurred>",
+
+  "attack_window_utc": {
+    "_definition": "Earliest to latest web-tier request from the primary suspicious IP, converted to UTC.",
+    "start": "<ISO-8601, e.g. 2024-01-01T00:00:00Z>",
+    "end": "<ISO-8601>"
+  },
+
+  "attack_type": "<short classification string, e.g. credential_stuffing, sql_injection, ddos>",
+
+  "primary_suspicious_ip": "<the single external IP responsible for the bulk of the malicious login traffic. NOT internal monitoring or other noise>",
+
+  "primary_ip_request_count": "<integer: total web-tier requests logged from the primary suspicious IP on the incident date>",
+
+  "failed_login_attempts": "<integer: login attempts rejected by the web tier — POST /api/login answered with HTTP 401. Do NOT include 403 (rate-limited) responses>",
+
+  "successful_logins_from_attackers": "<integer: /api/login requests (any method) that received HTTP 200 AND came from any IP involved in the attack (primary or probing pool)>",
+
+  "compromised_accounts": ["<username strings visible in the successful attack login request paths>"],
+
+  "attack_source_ip_count": "<integer: distinct IPs that sent at least one POST /api/login which was rejected with HTTP 401>",
+
+  "web_5xx_count": "<integer: web-tier responses with status >= 500 on the incident date (whole web-access.log)>",
+
+  "ssh_failed_password_lines": "<integer: sshd 'Failed password' events in bastion-auth.log>",
+
+  "ssh_distinct_source_ips": "<integer: distinct source IPs across those ssh failure events>",
+
+  "ssh_failed_from_primary_ip": "<integer: sshd 'Failed password' events sourced from the primary suspicious IP>",
+
+  "same_source_ip_in_web_and_ssh": "<true/false: did the primary suspicious IP also generate ssh failures on the bastion?>",
+
+  "app_error_entries": "<integer: api-service log entries with level exactly 'ERROR'. WARN entries do NOT count>",
+
+  "impact_summary": "<1-3 sentences: what was affected and how badly, grounded in the numbers above>",
+
+  "likely_mechanism": "<1-3 sentences: why did the 5xx wave happen during the attack?>"
+}

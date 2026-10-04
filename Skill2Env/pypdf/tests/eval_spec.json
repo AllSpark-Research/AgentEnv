@@ -1,0 +1,38 @@
+{
+  "rubric": [
+    {
+      "id": "D1_packet_pages",
+      "description": "packet/audit_packet.pdf contains exactly the 10 auditor-mandated pages in tab order A-D: GL-2204 signature page then Schedule 1 fee schedule; AGF-88231 Declarations then Section III Exclusions; Q3 reconciliation summary then outstanding-checks detail; the executed Vaughn & Holt letter in its entirety (4 pages incl. Appendix A). Verified by per-page text markers and page count.",
+      "weight": 0.3,
+      "method": "deterministic"
+    },
+    {
+      "id": "D2_orientation_integrity",
+      "description": "Every packet page is upright (page rotation a multiple of 360) and the packet contains no non-requested content (no GL-2240/Northgate doc, no draft letter, no Schedule 2 / Amendment No. 1 / deposits detail / internal sign-off / marketing / TOC pages).",
+      "weight": 0.1,
+      "method": "deterministic"
+    },
+    {
+      "id": "D3_index_csv",
+      "description": "packet/packet_index.csv uses the auditor template's exact header (tab,source_file,source_pages,packet_page_range,page_count) and contains exactly rows A,B,C,D,TOTAL: correct source files, 1-based source pages in inclusion order (Tab A = 6;4), correct cumulative packet ranges (1-2, 3-4, 5-6, 7-10), page counts 2/2/2/4, TOTAL=10.",
+      "weight": 0.3,
+      "method": "deterministic"
+    },
+    {
+      "id": "D4_memo_facts",
+      "description": "packet/cover_memo.md includes the forced facts: matter number HLG-2024-118, the Q3 adjusted bank balance figure $181,410.55, the total packet page count of 10, and references to contract GL-2204, policy AGF-88231, and the Vaughn & Holt engagement letter.",
+      "weight": 0.1,
+      "method": "deterministic"
+    },
+    {
+      "id": "J1_cover_memo_quality",
+      "description": "Cover memo reporting quality: accurate anomaly handling and usefulness for the audit engagement team.",
+      "weight": 0.2,
+      "method": "llm_judge",
+      "target_globs": ["packet/cover_memo.md", "packet/packet_index.csv"],
+      "judge_instruction": "Score packet/cover_memo.md from 0 to 1. Context: the audit firm Crowe & Pelley LLP requested an evidence packet for Matter HLG-2024-118 with four tabs (A: Northstar Analytics consulting agreement GL-2204 signature page + Schedule 1; B: Agentfield policy AGF-88231 Declarations + Section III Exclusions; C: Q3 2024 operating account 4471 reconciliation summary + outstanding-checks detail; D: fully executed Vaughn & Holt engagement letter in its entirety). Award credit for: (1) clearly listing the four tabs with the correct documents and page counts; (2) stating the total packet page count (10) consistent with the packet index; (3) flagging the real anomalies handled during assembly — the sideways/upside-down scan pages that were rotated upright (declarations page and outstanding-checks detail), the existence of a draft engagement letter that was excluded in favor of the executed version, and the exclusion of other non-requested pages embedded in the source files; (4) being addressed appropriately to the audit engagement team in a professional memo format; (5) internal consistency and factual accuracy — no invented documents, figures, or claims that contradict the packet index. Deduct for: missing anomaly discussion, fabricated facts, figures that contradict the index CSV, or a sloppy/ambiguous presentation. A short but accurate and complete memo can earn full credit."
+    }
+  ],
+  "pass_threshold": 0.7,
+  "rubric_summary": "A passing solution assembles packet/audit_packet.pdf with exactly the 10 auditor-mandated pages in order with all pages upright and no excluded content, delivers an exact packet_index.csv per the template with 1-based pages and TOTAL=10, and writes an accurate cover memo with the matter number, $181,410.55 adjusted balance, total page count, and honest anomaly notes."
+}

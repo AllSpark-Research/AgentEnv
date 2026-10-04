@@ -1,0 +1,55 @@
+ticket_id,created_at_utc,channel,subject,status
+T-4501,2024-11-14T14:05:31,email,Payment failed at checkout,open
+T-4502,2024-11-14T14:09:31,chat,Payment failed at checkout,open
+T-4503,2024-11-14T14:11:31,chat,Payment failed at checkout,open
+T-4504,2024-11-14T14:13:31,chat,charged twice? order never confirmed,resolved
+T-4505,2024-11-14T14:15:31,twitter,Order stuck after payment,resolved
+T-4506,2024-11-14T14:17:31,email,Order stuck after payment,resolved
+T-4507,2024-11-14T14:20:31,email,Checkout button spins forever,open
+T-4508,2024-11-14T14:24:31,email,Checkout button spins forever,open
+T-4509,2024-11-14T14:28:31,email,502 error when paying,resolved
+T-4510,2024-11-14T14:29:31,email,Payment failed at checkout,open
+T-4511,2024-11-14T14:33:31,twitter,502 error when paying,open
+T-4512,2024-11-14T14:36:31,chat,Site down? checkout not working,open
+T-4513,2024-11-14T14:40:31,chat,Checkout page shows an error,open
+T-4514,2024-11-14T14:41:31,twitter,charged twice? order never confirmed,open
+T-4515,2024-11-14T14:42:31,twitter,502 error when paying,open
+T-4516,2024-11-14T14:46:31,chat,Site down? checkout not working,resolved
+T-4517,2024-11-14T14:48:31,twitter,charged twice? order never confirmed,open
+T-4518,2024-11-14T14:49:31,twitter,Order stuck after payment,resolved
+T-4519,2024-11-14T14:52:31,email,Checkout button spins forever,open
+T-4520,2024-11-14T14:56:31,twitter,Payment failed at checkout,resolved
+T-4521,2024-11-14T14:57:31,chat,Payment failed at checkout,resolved
+T-4522,2024-11-14T15:01:31,chat,charged twice? order never confirmed,resolved
+T-4523,2024-11-14T15:04:31,email,Checkout page shows an error,open
+T-4524,2024-11-14T15:06:31,email,Site down? checkout not working,resolved
+T-4525,2024-11-14T15:07:31,twitter,charged twice? order never confirmed,resolved
+T-4526,2024-11-14T15:08:31,chat,Checkout button spins forever,resolved
+T-4527,2024-11-14T15:10:31,email,charged twice? order never confirmed,open
+T-4528,2024-11-14T15:11:31,email,Checkout page shows an error,open
+T-4529,2024-11-14T15:14:31,chat,charged twice? order never confirmed,open
+T-4530,2024-11-14T15:15:31,email,charged twice? order never confirmed,open
+T-4531,2024-11-14T15:19:31,twitter,Can't complete my order,resolved
+T-4532,2024-11-14T15:20:31,twitter,Can't complete my order,resolved
+T-4533,2024-11-14T15:21:31,email,Site down? checkout not working,resolved
+T-4534,2024-11-14T15:24:31,twitter,Can't complete my order,open
+T-4535,2024-11-14T15:25:31,twitter,charged twice? order never confirmed,open
+T-4536,2024-11-14T15:28:31,email,Checkout button spins forever,resolved
+T-4537,2024-11-14T15:31:31,chat,Order stuck after payment,open
+T-4538,2024-11-14T15:33:31,email,502 error when paying,open
+T-4539,2024-11-14T15:37:31,email,Payment failed at checkout,resolved
+T-4540,2024-11-14T15:40:31,twitter,charged twice? order never confirmed,resolved
+T-4541,2024-11-14T15:41:31,chat,Payment failed at checkout,open
+T-4542,2024-11-14T15:44:31,chat,Payment failed at checkout,open
+T-4543,2024-11-14T15:47:31,email,Checkout page shows an error,open
+T-4544,2024-11-14T15:50:31,email,Site down? checkout not working,open
+T-4545,2024-11-14T15:51:31,email,Order stuck after payment,resolved
+T-4546,2024-11-14T15:52:31,email,charged twice? order never confirmed,open
+T-4547,2024-11-14T15:53:31,chat,Site down? checkout not working,open
+T-4548,2024-11-14T15:57:31,twitter,Can't complete my order,open
+T-4549,2024-11-14T16:00:31,twitter,502 error when paying,open
+T-4550,2024-11-14T16:02:31,twitter,502 error when paying,open
+T-4551,2024-11-14T16:06:31,twitter,Can't complete my order,resolved
+T-4552,2024-11-14T16:09:31,email,Site down? checkout not working,resolved
+T-4553,2024-11-14T16:13:31,chat,Checkout button spins forever,resolved
+T-4554,2024-11-14T16:17:31,twitter,Checkout button spins forever,resolved
