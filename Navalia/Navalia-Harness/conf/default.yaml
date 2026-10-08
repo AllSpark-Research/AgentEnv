@@ -1,0 +1,22 @@
+model:
+  name: Navalia-35B-A3B
+  base_url: http://localhost:8000/v1
+  temperature: 1.0
+  top_p: 0.95
+  max_tokens: 65536
+  timeout_seconds: 600
+  max_retries: 2
+  extra_body:
+    chat_template_kwargs:
+      enable_thinking: true
+      preserve_thinking: true
+
+agent:
+  max_turns: 200
+  fifo_max_turns: 30
+  fifo_min_turns: 20
+
+sandbox: {}
+
+system_prompt: system.txt
+user_suffix: user_suffix.txt

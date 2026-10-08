@@ -1,0 +1,17 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.DS_Store
+*.[eE][nN][vV]*
+runs/
+data/
+weights/
+*.safetensors
+*.pt
+*.bin
+build/
+dist/

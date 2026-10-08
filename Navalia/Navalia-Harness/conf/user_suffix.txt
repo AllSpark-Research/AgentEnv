@@ -1,0 +1,12 @@
+## Parenthesized numbers in SEC 10-K / 10-Q tables (IMPORTANT)
+
+  1. **Numeric cell in parentheses → interpret as negative:**
+       `| Dividends paid | (4,013) |`         → **-4,013**
+       `| Net loss | (215) |`                 → **-215**
+       `| Earnings (Loss) | (63.9) | 9.5 |`   → **-63.9** and **+9.5**
+
+  2. **Do NOT auto-negate based on line-item name alone.**
+     `| Cost of sales | 27,556 |` → **27,556** (positive — no parentheses).
+     Only treat a value as negative when the numeric cell itself uses parentheses, or the table header explicitly indicates Decrease / Loss / Deduction.
+
+  3. When reporting a parenthesized value in your FINAL_ANSWER, **preserve the negative sign** (write `-4013`, not `4013`). Outputting the absolute value will be scored INCORRECT.
