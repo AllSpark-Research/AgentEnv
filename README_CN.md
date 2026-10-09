@@ -77,7 +77,7 @@ Navalia 从公开财报出发，将可追溯证据与可执行计算链结合，
 
 论文报告：基于 Qwen3.6-35B-A3B 后训练，在五项金融研究与专业办公任务基准上均取得提升。
 
-[项目介绍](Navalia/README.md) · [模型](https://huggingface.co/AllSpark-Research/Navalia-35B-A3B) · [Agent Harness](Navalia/Navalia-Harness/)
+[项目介绍](Navalia/README.md) · [模型卡](https://huggingface.co/AllSpark-Research/Navalia-35B-A3B) · [Agent Harness](Navalia/Navalia-Harness/)
 
 ## 资源入口
 

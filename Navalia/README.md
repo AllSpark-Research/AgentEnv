@@ -91,7 +91,7 @@ Raw traces retain model responses, reasoning, and tool interactions.
 
 See the [Harness README](Navalia-Harness/README.md) for setup and trajectory collection.
 Model serving instructions are in the
-[model card](https://huggingface.co/AllSpark-Research/Navalia-35B-A3B#quickstart).
+[model card](https://huggingface.co/AllSpark-Research/Navalia-35B-A3B).
 
 ## Acknowledgements
 

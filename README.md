@@ -73,7 +73,7 @@ Navalia constructs verifiable analytical tasks from public financial reports by 
 
 Post-training Qwen3.6-35B-A3B improves performance across five financial research and professional workplace benchmarks, as reported in the paper.
 
-[Project](Navalia/README.md) · [Model](https://huggingface.co/AllSpark-Research/Navalia-35B-A3B) · [Agent Harness](Navalia/Navalia-Harness/)
+[Project](Navalia/README.md) · [Model Card](https://huggingface.co/AllSpark-Research/Navalia-35B-A3B) · [Agent Harness](Navalia/Navalia-Harness/)
 
 ## Resources
 
