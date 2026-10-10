@@ -65,27 +65,12 @@ Skill2Env 通过能力导向的难度模式与任务蓝图，将可复用技能�
 
 [阅读论文 ↗](https://arxiv.org/abs/2609.33772) · [模型](https://huggingface.co/AllSpark-Research/Skill2Env) · [示例任务](./Skill2Env/)
 
-### Navalia
-
-**Advancing Cowork Agents through Verifiable Task Synthesis and Long-Horizon Post-Training**
-
-通过可验证任务合成与长程后训练，提升协作智能体能力
-
-Navalia 从公开财报出发，将可追溯证据与可执行计算链结合，构造可验证的分析任务，用于协作智能体的轨迹收集与长程后训练。
-
-**可验证任务合成 · FIFO rollout · SFT 与 RL**
-
-论文报告：基于 Qwen3.6-35B-A3B 后训练，在五项金融研究与专业办公任务基准上均取得提升。
-
-[项目介绍](Navalia/README.md) · [模型卡](https://huggingface.co/AllSpark-Research/Navalia-35B-A3B) · [Agent Harness](Navalia/Navalia-Harness/)
-
 ## 资源入口
 
 | 工作 | 研究重点 | 论文 |
 | :--- | :--- | :--- |
 | **CompoWorld** | 通过服务组合扩展环境与任务 | [arXiv:2609.33665](https://arxiv.org/abs/2609.33665) |
 | **Skill2Env** | 能力需求引导的环境合成与任务强化 | [arXiv:2609.33772](https://arxiv.org/abs/2609.33772) |
-| **Navalia** | 从财报构造可验证任务，并进行长程后训练 | Tech Report |
 
 相关工作统一收录于 **[AllSpark-Research/AgentEnv](https://github.com/AllSpark-Research/AgentEnv)**。
 

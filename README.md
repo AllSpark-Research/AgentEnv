@@ -63,25 +63,12 @@ Supervised fine-tuning on the generated trajectories produces improvements acros
 
 [Read the paper ↗](https://arxiv.org/abs/2609.33772) · [Model](https://huggingface.co/AllSpark-Research/Skill2Env) · [Example tasks](./Skill2Env/)
 
-### Navalia
-
-**Advancing Cowork Agents through Verifiable Task Synthesis and Long-Horizon Post-Training**
-
-Navalia constructs verifiable analytical tasks from public financial reports by linking traceable evidence with executable computation chains. These tasks support trajectory collection and long-horizon post-training for cowork agents.
-
-**Verifiable task synthesis · FIFO rollouts · SFT and RL**
-
-Post-training Qwen3.6-35B-A3B improves performance across five financial research and professional workplace benchmarks, as reported in the paper.
-
-[Project](Navalia/README.md) · [Model Card](https://huggingface.co/AllSpark-Research/Navalia-35B-A3B) · [Agent Harness](Navalia/Navalia-Harness/)
-
 ## Resources
 
 | Work | Focus | Paper |
 | :--- | :--- | :--- |
 | **CompoWorld** | Scaling through service composition | [arXiv:2609.33665](https://arxiv.org/abs/2609.33665) |
 | **Skill2Env** | Synthesis and task hardening guided by capability demands | [arXiv:2609.33772](https://arxiv.org/abs/2609.33772) |
-| **Navalia** | Verifiable task synthesis from financial reports and long-horizon post-training | Tech Report |
 
 These works are collected here at **[AllSpark-Research/AgentEnv](https://github.com/AllSpark-Research/AgentEnv)**.
 

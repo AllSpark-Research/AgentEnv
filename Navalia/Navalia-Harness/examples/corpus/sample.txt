@@ -1,4 +1,0 @@
-Synthetic example for testing the harness. This is not a real company's financial report.
-
-Revenue in 2023: USD 80 million.
-Revenue in 2024: USD 100 million.
