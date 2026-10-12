@@ -18,7 +18,20 @@
 
 Skill2Env turns reusable skills into executable environments for agent post-training. Capability-oriented difficulty patterns and task blueprints guide the construction of task instructions, execution substrates, workspaces, and rubric-based evaluators. Iterative Task Hardening uses solver execution evidence to strengthen task designs.
 
-We construct **2,963 tasks** and train Qwen3.6-35B-A3B with **1.5K SFT trajectories**, achieving an average improvement of **8.4 points across seven agent benchmarks**. See the [paper](https://arxiv.org/abs/2609.33772) for details.
+We construct **2,963 tasks** and train Qwen3.6-35B-A3B with **1.5K SFT trajectories**, achieving an average improvement of **8.4 points across seven agent benchmarks**. 
+
+| Benchmark | Qwen3.6-35B-A3B | Skill2Env | Improvement |
+| :--- | ---: | ---: | ---: |
+| Terminal-Bench 2.1 | 44.9 | **58.4** | +13.5 |
+| SWE-bench Multilingual | 63.3 | **71.0** | +7.7 |
+| SkillsBench | 32.5 | **46.9** | +14.3 |
+| Claw-Eval | 55.8 | **61.3** | +5.5 |
+| τ³-Banking | 10.7 | **15.1** | +4.5 |
+| AutomationBench | 10.3 | **17.7** | +7.3 |
+| VitaBench | 38.9 | **44.8** | +5.9 |
+| **Average** | **36.6** | **45.0** | **+8.4** |
+
+Scores and gains are rounded independently to one decimal place; gains are computed from unrounded scores. Average is the unweighted mean across the seven benchmarks. See the [paper](https://arxiv.org/abs/2609.33772) for details.
 
 ## Example tasks
 
