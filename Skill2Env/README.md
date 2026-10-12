@@ -22,14 +22,14 @@ We construct **2,963 tasks** and train Qwen3.6-35B-A3B with **1.5K SFT trajector
 
 ## Example tasks
 
-This directory contains **20 example tasks** in [Harbor task format](https://github.com/harbor-framework/harbor).
+The [`tasks/`](./tasks/) directory contains **20 example tasks** in [Harbor task format](https://github.com/harbor-framework/harbor).
 
 Each task includes its instruction, environment, initial workspace, source skill, and evaluator.
 
 ## Task format
 
 ```text
-<task-name>/
+tasks/<task-name>/
 ├── instruction.md
 ├── task.toml
 ├── environment/

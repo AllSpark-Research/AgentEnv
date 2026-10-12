@@ -61,7 +61,7 @@ Skill2Env turns reusable skills into executable tasks through capability-driven 
 
 Supervised fine-tuning on the generated trajectories produces improvements across a broad range of agent benchmarks, as reported in the paper.
 
-[Read the paper ↗](https://arxiv.org/abs/2609.33772) · [Model](https://huggingface.co/AllSpark-Research/Skill2Env) · [Example tasks](./Skill2Env/)
+[Read the paper ↗](https://arxiv.org/abs/2609.33772) · [Model](https://huggingface.co/AllSpark-Research/Skill2Env) · [Example tasks](./Skill2Env/tasks/)
 
 ## Resources
 

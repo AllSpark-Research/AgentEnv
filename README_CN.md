@@ -63,7 +63,7 @@ Skill2Env 通过能力导向的难度模式与任务蓝图，将可复用技能�
 
 论文报告：使用生成的轨迹进行监督微调，在多项智能体基准上取得提升。
 
-[阅读论文 ↗](https://arxiv.org/abs/2609.33772) · [模型](https://huggingface.co/AllSpark-Research/Skill2Env) · [示例任务](./Skill2Env/)
+[阅读论文 ↗](https://arxiv.org/abs/2609.33772) · [模型](https://huggingface.co/AllSpark-Research/Skill2Env) · [示例任务](./Skill2Env/tasks/)
 
 ## 资源入口
 
